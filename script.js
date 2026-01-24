@@ -34,3 +34,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+const track = document.querySelector('.collab-track');
+const noMarquee = document.body.classList.contains('no-marquee');
+
+if (track && !noMarquee) {
+    track.innerHTML += track.innerHTML;
+
+    const speedPxPerSec = 90;
+
+    requestAnimationFrame(() => {
+        const halfWidth = track.scrollWidth / 2;
+        const duration = Math.max(18, Math.round(halfWidth / speedPxPerSec));
+        track.style.setProperty('--marquee-duration', `${duration}s`);
+    });
+}
+

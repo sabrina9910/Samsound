@@ -843,3 +843,33 @@ a:hover {
         mask-image: none;
     }
 }
+
+/* Education: loghi statici su UNA riga con scroll orizzontale */
+.no-marquee .collab-marquee {
+    overflow-x: auto;
+    overflow-y: hidden;
+    mask-image: none;
+    /* niente “fade” ai lati */
+    -webkit-overflow-scrolling: touch;
+}
+
+.no-marquee .collab-track {
+    animation: none !important;
+    /* ferma il marquee */
+    transform: translateX(0) !important;
+
+    width: max-content;
+    /* la riga può essere più larga dello schermo */
+    display: flex;
+    flex-wrap: nowrap;
+    /* UNA riga */
+    gap: 3rem;
+}
+
+.no-marquee .collab-marquee::-webkit-scrollbar {
+    display: none;
+}
+
+.no-marquee .collab-marquee {
+    scrollbar-width: none;
+}
