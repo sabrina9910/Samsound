@@ -950,3 +950,51 @@ a:hover {
         padding: 1rem;
     }
 }
+
+/* ===== EDUCATION: Nota / callout ===== */
+.edu-note {
+    border-color: rgba(245, 158, 11, .35);
+    background: linear-gradient(135deg, rgba(245, 158, 11, .06) 0%, rgba(217, 119, 6, .04) 100%);
+}
+
+.edu-note .panel__title::after {
+    background: var(--education);
+}
+
+/* ===== EDUCATION: Case study cards ===== */
+.edu-cases {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.25rem;
+}
+
+.edu-case {
+    background: rgba(0, 0, 0, .25);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.25rem;
+}
+
+.edu-case__title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    margin-bottom: .35rem;
+    color: var(--text);
+}
+
+.edu-case__meta {
+    color: var(--text-muted);
+    font-size: .95rem;
+    font-style: italic;
+}
+
+.edu-case__body p {
+    color: var(--text-muted);
+    margin-top: .85rem;
+    line-height: 1.8;
+}
+
+.edu-case__body p strong {
+    color: var(--text);
+    font-weight: 600;
+}
