@@ -1,19 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Anno automatico nel footer
     const yearSpan = document.getElementById('year');
-    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+    if (yearSpan) yearSpan.textContent = String(new Date().getFullYear());
 
     // Smooth scroll con offset header (solo anchor nella stessa pagina)
     const header = document.getElementById('header');
 
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-        a.addEventListener('click', (e) => {
-            const target = document.querySelector(a.getAttribute('href'));
+    document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach((link) => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            const target = href ? document.querySelector(href) : null;
             if (!target) return;
 
             e.preventDefault();
+
             const headerH = header ? header.offsetHeight : 0;
-            const y = target.getBoundingClientRect().top + window.scrollY - headerH - 16;
+            const targetTop = target.getBoundingClientRect().top + window.scrollY;
+
+            const y = href === '#home'
+                ? 0
+                : Math.max(0, Math.round(targetTop - headerH - 16));
+
             window.scrollTo({ top: y, behavior: 'smooth' });
         });
     });
@@ -25,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (track && !noMarquee) {
         if (!track.dataset.duplicated) {
             track.innerHTML += track.innerHTML;
-            track.dataset.duplicated = "true";
+            track.dataset.duplicated = 'true';
         }
 
         const speedPxPerSec = 90;
