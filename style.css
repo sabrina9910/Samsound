@@ -13,11 +13,9 @@
     --education-hover: #fbbf24;
     --education-dark: #d97706;
 
-    /* Live branch colors – customizable like production/education */
     --live: #2F7BFF;
     --live-hover: #72A7FF;
     --live-dark: #1B57C9;
-
 
     --contact: #9ca3af;
     --contact-hover: #d1d5db;
@@ -54,8 +52,9 @@ a {
     transition: color .3s ease;
 }
 
+/* FIX: color vuole un solo valore [web:173] */
 a:hover {
-    color: #d97706 var(--production-hover);
+    color: var(--production-hover);
 }
 
 .visually-hidden:not(:focus):not(:active) {
@@ -101,7 +100,6 @@ a:hover {
 }
 
 .header__brand img {
-    /* MODIFICA QUI il valore di 'height' per cambiare la grandezza del logo */
     height: 60px;
     width: auto;
 }
@@ -405,7 +403,7 @@ a:hover {
 }
 
 /* =========================
-   CONTACTS HOME
+   CONTACTS
    ========================= */
 .contacts {
     padding: 3rem 0 4rem;
@@ -452,22 +450,55 @@ a:hover {
     color: var(--contact-hover);
 }
 
-.social-links {
+.small-muted {
+    color: var(--text-muted);
+    font-size: .92rem;
+    font-style: italic;
+}
+
+/* Social icons */
+.social-icons {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    align-items: center;
+    gap: .85rem;
     flex-wrap: wrap;
     margin-top: 1rem;
 }
 
-.social-link {
+.social-icon {
+    width: 46px;
+    height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, .04);
+
     color: var(--contact);
-    font-weight: 600;
+    transition: transform .15s ease, background .15s ease, border-color .15s ease, color .15s ease;
 }
 
-.social-link:hover {
-    color: var(--contact-hover);
-    text-decoration: underline;
+.social-icon:hover {
+    transform: translateY(-2px);
+    background: rgba(47, 123, 255, .10);
+    border-color: rgba(47, 123, 255, .55);
+    color: var(--live);
+}
+
+/* :focus-visible per tastiera [web:150] */
+.social-icon:focus-visible {
+    outline: 2px solid var(--live);
+    outline-offset: 3px;
+}
+
+.social-icon svg {
+    width: 22px;
+    height: 22px;
+    display: block;
+    fill: currentColor;
 }
 
 /* =========================
@@ -546,9 +577,10 @@ a:hover {
     border-color: rgba(245, 158, 11, .2);
 }
 
+/* FIX: prima aveva colori education; ora live coerente */
 .panel--highlight-live {
-    background: linear-gradient(135deg, rgba(245, 158, 11, .05) 0%, rgba(217, 119, 6, .05) 100%);
-    border-color: rgb(34, 49, 118);
+    background: linear-gradient(135deg, rgba(47, 123, 255, .06) 0%, rgba(27, 87, 201, .06) 100%);
+    border-color: rgba(47, 123, 255, .22);
 }
 
 .panel__title {
@@ -599,7 +631,7 @@ a:hover {
 }
 
 /* =========================
-   BIO SPLIT (foto + testo)
+   BIO SPLIT
    ========================= */
 .bio-split {
     display: grid;
@@ -735,49 +767,15 @@ a:hover {
 }
 
 /* =========================
-   CONTACT BOX
+   EDUCATION NOTE
    ========================= */
-.contact-box {
-    border: 2px solid var(--contact);
-    border-radius: 16px;
-    padding: 2rem;
-    margin: 2.5rem 0;
-    text-align: center;
-    background: rgba(156, 163, 175, .05);
+.edu-note {
+    border-color: rgba(245, 11, 11, 0.35);
+    background: linear-gradient(135deg, rgba(245, 11, 11, 0.35), rgba(245, 11, 11, 0.35) 100%);
 }
 
-.contact-box__title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1.25rem;
-    color: var(--text);
-}
-
-.contact-box__info p {
-    margin-bottom: .75rem;
-    color: var(--text-muted);
-    font-size: 1rem;
-}
-
-.contact-box__info a {
-    color: var(--contact);
-    font-weight: 600;
-}
-
-.contact-box__info a:hover {
-    color: var(--contact-hover);
-    text-decoration: underline;
-}
-
-.back-link {
-    margin-top: 3rem;
-    text-align: center;
-}
-
-.small-muted {
-    color: var(--text-muted);
-    font-size: .92rem;
-    font-style: italic;
+.edu-note .panel__title::after {
+    background: var(--education);
 }
 
 /* =========================
@@ -798,53 +796,6 @@ a:hover {
     text-transform: uppercase;
     letter-spacing: .1em;
 }
-
-/* =========================
-   SOCIAL ICONS (Contacts)
-   ========================= */
-.social-icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: .85rem;
-    flex-wrap: wrap;
-    margin-top: 1rem;
-}
-
-.social-icon {
-    width: 46px;
-    height: 46px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 14px;
-    border: 1px solid var(--border);
-    background: rgba(255, 255, 255, .04);
-
-    color: var(--contact);
-    transition: transform .15s ease, background .15s ease, border-color .15s ease, color .15s ease;
-}
-
-.social-icon:hover {
-    transform: translateY(-2px);
-    background: rgba(47, 123, 255, .10);
-    border-color: rgba(47, 123, 255, .55);
-    color: var(--live);
-}
-
-.social-icon:focus-visible {
-    outline: 2px solid var(--live);
-    outline-offset: 3px;
-}
-
-.social-icon svg {
-    width: 22px;
-    height: 22px;
-    display: block;
-    fill: currentColor;
-}
-
 
 /* Collaborazioni: marquee */
 .collab-marquee {
@@ -926,7 +877,7 @@ a:hover {
 }
 
 /* =========================
-   LINK CARDS (Production/Education)
+   LINK CARDS
    ========================= */
 .link-sections {
     display: grid;
@@ -1039,18 +990,6 @@ a:hover {
 }
 
 /* =========================
-   EDUCATION: Nota
-   ========================= */
-.edu-note {
-    border-color: rgba(245, 11, 11, 0.35);
-    background: linear-gradient(135deg, rgba(245, 11, 11, 0.35), rgba(245, 11, 11, 0.35) 100%);
-}
-
-.edu-note .panel__title::after {
-    background: var(--education);
-}
-
-/* =========================
    RESPONSIVE
    ========================= */
 @media (max-width: 768px) {
@@ -1113,6 +1052,17 @@ a:hover {
     .link-cards {
         grid-template-columns: 1fr;
     }
+
+    /* migliora touch targets su mobile */
+    .social-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .social-icon svg {
+        width: 24px;
+        height: 24px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1142,8 +1092,13 @@ a:hover {
     .link-card__meta {
         font-size: .9rem;
     }
+
+    .social-icons {
+        gap: .7rem;
+    }
 }
 
+/* Riduci animazioni se l'utente lo chiede [web:157] */
 @media (prefers-reduced-motion: reduce) {
     .collab-track {
         animation: none;
@@ -1153,4 +1108,37 @@ a:hover {
         overflow-x: auto;
         mask-image: none;
     }
+}
+
+.contact-email-row {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.contact-email-text {
+    margin-top: .65rem;
+    color: var(--text-muted);
+    font-size: .92rem;
+    font-style: italic;
+}
+
+/* FIX Education: il tuo a:hover globale le rende viola */
+.link-cards--education .link-card:hover .link-card__title,
+.link-cards--education .link-card:hover .link-card__arrow {
+    color: var(--education-hover);
+}
+
+.link-cards--education .link-card:hover .link-card__meta {
+    color: var(--text-muted);
+}
+
+/* Education: i bottoni dentro la card multi NON devono diventare viola */
+.link-cards--education .link-card__btn {
+    color: var(--text);
+}
+
+.link-cards--education .link-card__btn:hover {
+    color: var(--education-hover);
+    border-color: rgba(245, 158, 11, .55);
+    background: rgba(245, 158, 11, .08);
 }
