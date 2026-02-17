@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // anno automatico nel footer
+    // Anno automatico nel footer
     const yearSpan = document.getElementById('year');
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-    // Smooth scroll con offset header (solo per anchor nella stessa pagina)
+    // Smooth scroll con offset header (solo anchor nella stessa pagina)
     const header = document.getElementById('header');
 
     document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -18,35 +18,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Marquee loghi nel footer (index)
+    // Marquee: ON su index & production, OFF su education (.no-marquee)
     const track = document.querySelector('.collab-track');
-    if (track) {
-        // duplica i loghi per uno scorrimento continuo “senza stacco”
-        track.innerHTML += track.innerHTML;
+    const noMarquee = document.body.classList.contains('no-marquee');
 
-        // durata dinamica in base alla larghezza (più loghi = più tempo)
-        const speedPxPerSec = 90; // aumenta = più veloce, diminuisci = più lento
+    if (track && !noMarquee) {
+        if (!track.dataset.duplicated) {
+            track.innerHTML += track.innerHTML;
+            track.dataset.duplicated = "true";
+        }
+
+        const speedPxPerSec = 90;
 
         requestAnimationFrame(() => {
-            const halfWidth = track.scrollWidth / 2; // perché abbiamo duplicato
+            const halfWidth = track.scrollWidth / 2;
             const duration = Math.max(18, Math.round(halfWidth / speedPxPerSec));
             track.style.setProperty('--marquee-duration', `${duration}s`);
         });
     }
 });
-
-const track = document.querySelector('.collab-track');
-const noMarquee = document.body.classList.contains('no-marquee');
-
-if (track && !noMarquee) {
-    track.innerHTML += track.innerHTML;
-
-    const speedPxPerSec = 90;
-
-    requestAnimationFrame(() => {
-        const halfWidth = track.scrollWidth / 2;
-        const duration = Math.max(18, Math.round(halfWidth / speedPxPerSec));
-        track.style.setProperty('--marquee-duration', `${duration}s`);
-    });
-}
-

@@ -13,6 +13,12 @@
     --education-hover: #fbbf24;
     --education-dark: #d97706;
 
+    /* Live branch colors – customizable like production/education */
+    --live: #2F7BFF;
+    --live-hover: #72A7FF;
+    --live-dark: #1B57C9;
+
+
     --contact: #9ca3af;
     --contact-hover: #d1d5db;
 }
@@ -49,7 +55,7 @@ a {
 }
 
 a:hover {
-    color: var(--production-hover);
+    color: #d97706 var(--production-hover);
 }
 
 .visually-hidden:not(:focus):not(:active) {
@@ -69,7 +75,9 @@ a:hover {
     margin: 0 auto;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+   ========================= */
 .header {
     padding: .45rem 0;
     border-bottom: 1px solid var(--border);
@@ -93,11 +101,12 @@ a:hover {
 }
 
 .header__brand img {
-    height: 26px;
+    /* MODIFICA QUI il valore di 'height' per cambiare la grandezza del logo */
+    height: 60px;
     width: auto;
 }
 
-/* NAV “più centrata” e che occupa tutto lo spazio */
+/* NAV centrata */
 .nav {
     flex: 1 1 auto;
     display: flex;
@@ -155,7 +164,9 @@ a:hover {
     background: var(--contact);
 }
 
-/* HERO solo logo (più piccolo) */
+/* =========================
+   HERO
+   ========================= */
 .hero {
     padding: 3rem 0;
     text-align: center;
@@ -171,7 +182,9 @@ a:hover {
     height: auto;
 }
 
-/* ABOUT */
+/* =========================
+   ABOUT
+   ========================= */
 .about {
     padding: 3rem 0;
     max-width: 900px;
@@ -211,7 +224,13 @@ a:hover {
     color: var(--education);
 }
 
-/* HOME CARDS */
+.highlight--live {
+    color: var(--live);
+}
+
+/* =========================
+   HOME CARDS
+   ========================= */
 .branches {
     padding: 4rem 0 5rem;
 }
@@ -335,7 +354,9 @@ a:hover {
     color: var(--education);
 }
 
-/* BUTTONS */
+/* =========================
+   BUTTONS
+   ========================= */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -383,7 +404,9 @@ a:hover {
     box-shadow: 0 4px 20px rgba(245, 158, 11, .4);
 }
 
-/* CONTACTS HOME */
+/* =========================
+   CONTACTS HOME
+   ========================= */
 .contacts {
     padding: 3rem 0 4rem;
     max-width: 900px;
@@ -405,7 +428,7 @@ a:hover {
 }
 
 .contact-item--full {
-    grid-column: 1/-1;
+    grid-column: 1 / -1;
 }
 
 .contact-item h3 {
@@ -429,7 +452,27 @@ a:hover {
     color: var(--contact-hover);
 }
 
-/* PAGES */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.social-link {
+    color: var(--contact);
+    font-weight: 600;
+}
+
+.social-link:hover {
+    color: var(--contact-hover);
+    text-decoration: underline;
+}
+
+/* =========================
+   PAGES
+   ========================= */
 .page {
     padding: 3rem 0 5rem;
 }
@@ -482,7 +525,9 @@ a:hover {
     border-color: var(--education);
 }
 
-/* PANELS */
+/* =========================
+   PANELS
+   ========================= */
 .panel {
     background: var(--dark-panel);
     border: 1px solid var(--border);
@@ -499,6 +544,11 @@ a:hover {
 .panel--highlight-education {
     background: linear-gradient(135deg, rgba(245, 158, 11, .05) 0%, rgba(217, 119, 6, .05) 100%);
     border-color: rgba(245, 158, 11, .2);
+}
+
+.panel--highlight-live {
+    background: linear-gradient(135deg, rgba(245, 158, 11, .05) 0%, rgba(217, 119, 6, .05) 100%);
+    border-color: rgb(34, 49, 118);
 }
 
 .panel__title {
@@ -548,7 +598,62 @@ a:hover {
     margin-bottom: 1.5rem;
 }
 
-/* SERVICE LIST */
+/* =========================
+   BIO SPLIT (foto + testo)
+   ========================= */
+.bio-split {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.bio-split__img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+}
+
+.bio-split__text {
+    min-width: 0;
+}
+
+/* =========================
+   QUOTE
+   ========================= */
+.quote {
+    margin: 2rem 0;
+    padding: 1.5rem 1.75rem;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, .04);
+}
+
+.quote blockquote {
+    color: var(--text);
+    line-height: 1.9;
+    font-style: italic;
+}
+
+.quote figcaption {
+    margin-top: .75rem;
+    color: var(--text-muted);
+    font-size: .95rem;
+}
+
+.quote--education {
+    border-color: rgba(245, 158, 11, .25);
+}
+
+.quote--production {
+    border-color: rgba(139, 92, 246, .25);
+}
+
+/* =========================
+   SERVICE LIST
+   ========================= */
 .service-list {
     list-style: none;
 }
@@ -586,7 +691,9 @@ a:hover {
     font-weight: 600;
 }
 
-/* TAGS (client) - neutral base + variants */
+/* =========================
+   TAGS (client)
+   ========================= */
 .clients-grid {
     display: flex;
     flex-wrap: wrap;
@@ -627,42 +734,9 @@ a:hover {
     transform: translateY(-2px);
 }
 
-/* PORTFOLIO */
-.portfolio-categories {
-    display: grid;
-    gap: 1.25rem;
-}
-
-.portfolio-cat {
-    padding: 1.25rem;
-    border-left: 3px solid;
-    border-radius: 8px;
-}
-
-.portfolio-cat--production {
-    background: rgba(139, 92, 246, .05);
-    border-left-color: var(--production);
-}
-
-.portfolio-cat--education {
-    background: rgba(245, 158, 11, .05);
-    border-left-color: var(--education);
-}
-
-.portfolio-cat h3 {
-    font-size: 1.15rem;
-    font-weight: 600;
-    margin-bottom: .5rem;
-    color: var(--text);
-}
-
-.portfolio-cat p {
-    color: var(--text-muted);
-    font-size: .95rem;
-    line-height: 1.6;
-}
-
-/* CONTACT BOX */
+/* =========================
+   CONTACT BOX
+   ========================= */
 .contact-box {
     border: 2px solid var(--contact);
     border-radius: 16px;
@@ -700,7 +774,15 @@ a:hover {
     text-align: center;
 }
 
-/* FOOTER */
+.small-muted {
+    color: var(--text-muted);
+    font-size: .92rem;
+    font-style: italic;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
 .footer {
     border-top: 1px solid var(--border);
     padding: 3rem 0 2rem;
@@ -717,7 +799,54 @@ a:hover {
     letter-spacing: .1em;
 }
 
-/* ===== Collaborazioni: marquee a colori e leggibile ===== */
+/* =========================
+   SOCIAL ICONS (Contacts)
+   ========================= */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .85rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.social-icon {
+    width: 46px;
+    height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, .04);
+
+    color: var(--contact);
+    transition: transform .15s ease, background .15s ease, border-color .15s ease, color .15s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-2px);
+    background: rgba(47, 123, 255, .10);
+    border-color: rgba(47, 123, 255, .55);
+    color: var(--live);
+}
+
+.social-icon:focus-visible {
+    outline: 2px solid var(--live);
+    outline-offset: 3px;
+}
+
+.social-icon svg {
+    width: 22px;
+    height: 22px;
+    display: block;
+    fill: currentColor;
+}
+
+
+/* Collaborazioni: marquee */
 .collab-marquee {
     overflow: hidden;
     padding: 1rem 0 1.25rem;
@@ -771,8 +900,160 @@ a:hover {
     font-size: .9rem;
 }
 
-/* RESPONSIVE */
-@media (max-width:768px) {
+/* Education: loghi statici su una riga con scroll */
+.no-marquee .collab-marquee {
+    overflow-x: auto;
+    overflow-y: hidden;
+    mask-image: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.no-marquee .collab-track {
+    animation: none !important;
+    transform: translateX(0) !important;
+    width: max-content;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 3rem;
+}
+
+.no-marquee .collab-marquee::-webkit-scrollbar {
+    display: none;
+}
+
+.no-marquee .collab-marquee {
+    scrollbar-width: none;
+}
+
+/* =========================
+   LINK CARDS (Production/Education)
+   ========================= */
+.link-sections {
+    display: grid;
+    gap: 2rem;
+}
+
+.link-section__title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: .9rem;
+    letter-spacing: .02em;
+}
+
+.link-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+.link-card {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: .25rem .75rem;
+
+    padding: 1.1rem 1.15rem;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, .04);
+
+    color: var(--text);
+    text-decoration: none;
+    transition: transform .25s ease, border-color .25s ease, background .25s ease;
+}
+
+.link-card__title {
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.3;
+}
+
+.link-card__meta {
+    grid-column: 1 / 2;
+    color: var(--text-muted);
+    font-size: .92rem;
+    line-height: 1.5;
+}
+
+.link-card__arrow {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    align-self: center;
+    justify-self: end;
+    font-weight: 700;
+    opacity: .9;
+    transition: transform .25s ease;
+}
+
+/* Hover Production */
+.link-cards--production .link-card:hover {
+    border-color: rgba(139, 92, 246, .55);
+    background: rgba(139, 92, 246, .08);
+    transform: translateY(-3px);
+}
+
+.link-cards--production .link-card:hover .link-card__arrow {
+    transform: translateX(4px);
+}
+
+/* Hover Education */
+.link-cards--education .link-card:hover {
+    border-color: rgba(245, 158, 11, .55);
+    background: rgba(245, 158, 11, .08);
+    transform: translateY(-3px);
+}
+
+.link-cards--education .link-card:hover .link-card__arrow {
+    transform: translateX(4px);
+}
+
+/* Card multi (Education: 2 bottoni dentro) */
+.link-card--multi {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+}
+
+.link-card__actions {
+    display: grid;
+    gap: .6rem;
+    margin-top: .75rem;
+}
+
+.link-card__btn {
+    display: inline-flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: .85rem 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: rgba(0, 0, 0, .25);
+    color: var(--text);
+    transition: background .25s ease, border-color .25s ease, transform .25s ease;
+}
+
+.link-cards--education .link-card__btn:hover {
+    border-color: rgba(245, 158, 11, .55);
+    background: rgba(245, 158, 11, .08);
+    transform: translateY(-2px);
+}
+
+/* =========================
+   EDUCATION: Nota
+   ========================= */
+.edu-note {
+    border-color: rgba(245, 11, 11, 0.35);
+    background: linear-gradient(135deg, rgba(245, 11, 11, 0.35), rgba(245, 11, 11, 0.35) 100%);
+}
+
+.edu-note .panel__title::after {
+    background: var(--education);
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 768px) {
     .container {
         width: calc(100% - 2rem);
     }
@@ -820,9 +1101,21 @@ a:hover {
     .collab-logo {
         height: 44px;
     }
+
+    .bio-split {
+        grid-template-columns: 1fr;
+    }
+
+    .bio-split__img {
+        height: 240px;
+    }
+
+    .link-cards {
+        grid-template-columns: 1fr;
+    }
 }
 
-@media (max-width:480px) {
+@media (max-width: 480px) {
     .btn {
         width: 100%;
         justify-content: center;
@@ -831,352 +1124,13 @@ a:hover {
     .hero__logo img {
         width: clamp(220px, 80vw, 320px);
     }
-}
 
-@media (prefers-reduced-motion: reduce) {
-    .collab-track {
-        animation: none;
-    }
-
-    .collab-marquee {
-        overflow-x: auto;
-        mask-image: none;
-    }
-}
-
-/* Education: loghi statici su UNA riga con scroll orizzontale */
-.no-marquee .collab-marquee {
-    overflow-x: auto;
-    overflow-y: hidden;
-    mask-image: none;
-    /* niente “fade” ai lati */
-    -webkit-overflow-scrolling: touch;
-}
-
-.no-marquee .collab-track {
-    animation: none !important;
-    /* ferma il marquee */
-    transform: translateX(0) !important;
-
-    width: max-content;
-    /* la riga può essere più larga dello schermo */
-    display: flex;
-    flex-wrap: nowrap;
-    /* UNA riga */
-    gap: 3rem;
-}
-
-.no-marquee .collab-marquee::-webkit-scrollbar {
-    display: none;
-}
-
-.no-marquee .collab-marquee {
-    scrollbar-width: none;
-}
-
-/* ===== PRODUCTION: Link Cards (Portfolio & ascolti) ===== */
-/* NOTE: in CSS usa commenti del tipo: slash-asterisk ... asterisk-slash (niente //). */
-
-.link-sections {
-    display: grid;
-    gap: 2rem;
-}
-
-.link-section__title {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: .9rem;
-    letter-spacing: .02em;
-}
-
-.link-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1rem;
-}
-
-.link-card {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: auto auto;
-    gap: .25rem .75rem;
-
-    padding: 1.1rem 1.15rem;
-    border-radius: 14px;
-    border: 1px solid var(--border);
-    background: rgba(255, 255, 255, .04);
-
-    color: var(--text);
-    text-decoration: none;
-    transition: transform .25s ease, border-color .25s ease, background .25s ease;
-}
-
-.link-card__title {
-    font-weight: 700;
-    font-size: 1rem;
-    line-height: 1.3;
-}
-
-.link-card__meta {
-    grid-column: 1 / 2;
-    color: var(--text-muted);
-    font-size: .92rem;
-    line-height: 1.5;
-}
-
-.link-card__arrow {
-    grid-column: 2 / 3;
-    grid-row: 1 / 3;
-    align-self: center;
-    justify-self: end;
-    font-weight: 700;
-    opacity: .9;
-    transition: transform .25s ease;
-}
-
-.link-cards--production .link-card:hover {
-    border-color: rgba(139, 92, 246, .55);
-    background: rgba(139, 92, 246, .08);
-    transform: translateY(-3px);
-}
-
-.link-cards--production .link-card:hover .link-card__arrow {
-    transform: translateX(4px);
-}
-
-@media (max-width:480px) {
     .link-card {
         padding: 1rem;
-    }
-}
-
-/* ===== EDUCATION: Nota / callout ===== */
-.edu-note {
-    border-color: rgba(245, 158, 11, .35);
-    background: linear-gradient(135deg, rgba(245, 158, 11, .06) 0%, rgba(217, 119, 6, .04) 100%);
-}
-
-.edu-note .panel__title::after {
-    background: var(--education);
-}
-
-/* ===== EDUCATION: Case study cards ===== */
-.edu-cases {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.25rem;
-}
-
-.edu-case {
-    background: rgba(0, 0, 0, .25);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 1.25rem;
-}
-
-.edu-case__title {
-    font-size: 1.05rem;
-    font-weight: 800;
-    margin-bottom: .35rem;
-    color: var(--text);
-}
-
-.edu-case__meta {
-    color: var(--text-muted);
-    font-size: .95rem;
-    font-style: italic;
-}
-
-.edu-case__body p {
-    color: var(--text-muted);
-    margin-top: .85rem;
-    line-height: 1.8;
-}
-
-.edu-case__body p strong {
-    color: var(--text);
-    font-weight: 600;
-}
-
-/* =========================
-   EDUCATION: Nota / Callout
-   ========================= */
-.edu-note {
-    border-color: rgba(245, 158, 11, .35);
-    background: linear-gradient(135deg, rgba(245, 158, 11, .06) 0%, rgba(217, 119, 6, .04) 100%);
-}
-
-.edu-note .panel__title::after {
-    background: var(--education);
-}
-
-/* =========================
-   EDUCATION: Case study cards
-   ========================= */
-.edu-cases {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.25rem;
-}
-
-.edu-case {
-    background: rgba(0, 0, 0, .25);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 1.25rem;
-}
-
-.edu-case__title {
-    font-size: 1.05rem;
-    font-weight: 800;
-    margin-bottom: .35rem;
-    color: var(--text);
-}
-
-.edu-case__meta {
-    color: var(--text-muted);
-    font-size: .95rem;
-    font-style: italic;
-}
-
-.edu-case__body p {
-    color: var(--text-muted);
-    margin-top: .85rem;
-    line-height: 1.8;
-}
-
-.edu-case__body p strong {
-    color: var(--text);
-    font-weight: 600;
-}
-
-/* =========================
-   LINK CARDS (shared)
-   Usate in Production & Education
-   ========================= */
-.link-sections {
-    display: grid;
-    gap: 2rem;
-}
-
-.link-section__title {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: .9rem;
-    letter-spacing: .02em;
-}
-
-.link-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1rem;
-}
-
-.link-card {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: auto auto;
-    gap: .25rem .75rem;
-
-    padding: 1.1rem 1.15rem;
-    border-radius: 14px;
-    border: 1px solid var(--border);
-    background: rgba(255, 255, 255, .04);
-
-    color: var(--text);
-    text-decoration: none;
-    transition: transform .25s ease, border-color .25s ease, background .25s ease;
-}
-
-.link-card__title {
-    font-weight: 700;
-    font-size: 1rem;
-    line-height: 1.3;
-}
-
-.link-card__meta {
-    grid-column: 1 / 2;
-    color: var(--text-muted);
-    font-size: .92rem;
-    line-height: 1.5;
-}
-
-.link-card__arrow {
-    grid-column: 2 / 3;
-    grid-row: 1 / 3;
-    align-self: center;
-    justify-self: end;
-    font-weight: 700;
-    opacity: .9;
-    transition: transform .25s ease;
-}
-
-/* =========================
-   LINK CARDS: hover Production (viola)
-   ========================= */
-.link-cards--production .link-card:hover {
-    border-color: rgba(139, 92, 246, .55);
-    background: rgba(139, 92, 246, .08);
-    transform: translateY(-3px);
-}
-
-.link-cards--production .link-card:hover .link-card__arrow {
-    transform: translateX(4px);
-}
-
-/* =========================
-   LINK CARDS: hover Education (arancione)
-   ========================= */
-.link-cards--education .link-card:hover {
-    border-color: rgba(245, 158, 11, .55);
-    background: rgba(245, 158, 11, .08);
-    transform: translateY(-3px);
-}
-
-.link-cards--education .link-card:hover .link-card__arrow {
-    transform: translateX(4px);
-}
-
-@media (max-width:480px) {
-    .link-card {
-        padding: 1rem;
-    }
-}
-
-/* =========================
-   EDUCATION: mobile tweaks
-   ========================= */
-@media (max-width:768px) {
-    .link-sections {
-        gap: 1.5rem;
+        border-radius: 16px;
+        min-height: 78px;
     }
 
-    .link-cards {
-        grid-template-columns: 1fr;
-    }
-
-    /* 1 colonna su mobile/tablet */
-    .link-card {
-        padding: 1rem;
-    }
-
-    .edu-cases {
-        grid-template-columns: 1fr;
-    }
-
-    /* case study in colonna singola */
-    .edu-case {
-        padding: 1rem;
-    }
-
-    .edu-note {
-        padding: 1.5rem;
-    }
-}
-
-@media (max-width:480px) {
     .link-section__title {
         font-size: 1rem;
     }
@@ -1188,10 +1142,15 @@ a:hover {
     .link-card__meta {
         font-size: .9rem;
     }
+}
 
-    /* area touch più comoda */
-    .link-card {
-        min-height: 78px;
-        border-radius: 16px;
+@media (prefers-reduced-motion: reduce) {
+    .collab-track {
+        animation: none;
+    }
+
+    .collab-marquee {
+        overflow-x: auto;
+        mask-image: none;
     }
 }
