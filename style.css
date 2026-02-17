@@ -1142,3 +1142,83 @@ a:hover {
     border-color: rgba(245, 158, 11, .55);
     background: rgba(245, 158, 11, .08);
 }
+
+/* =========================
+   FINAL FIXES (Education)
+   incolla in fondo al file
+   ========================= */
+
+/* Education: mai viola dentro le link-cards */
+.link-cards--education a:hover {
+    color: inherit;
+}
+
+/* Education: link-card title/arrow in arancione su hover */
+.link-cards--education .link-card:hover .link-card__title,
+.link-cards--education .link-card:hover .link-card__arrow {
+    color: var(--education-hover);
+}
+
+/* Education: bottoni multi (Sound Branding / Videogame) coerenti */
+.link-cards--education .link-card__btn {
+    color: var(--text);
+}
+
+.link-cards--education .link-card__btn:hover {
+    color: var(--education-hover);
+    border-color: rgba(245, 158, 11, .55);
+    background: rgba(245, 158, 11, .08);
+}
+
+/* Spazio tra griglia contatti e bottone email */
+.contact-email-row {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.contact-email-text {
+    margin-top: .65rem;
+    color: var(--text-muted);
+    font-size: .92rem;
+    font-style: italic;
+}
+
+/* =========================
+   BLOCK 3 — iPad/tablet layout
+   ========================= */
+
+/* Tablet (iPad): 2 colonne per le link-cards */
+@media (min-width: 600px) and (max-width: 1024px) {
+    .link-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* =========================
+   BLOCK 5 — polish mobile/iPad + focus
+   ========================= */
+
+/* Bottoni: focus accessibile (tastiera) */
+.btn:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+}
+
+/* iPad: header logo un filo più grande rispetto al mobile */
+@media (min-width: 600px) and (max-width: 1024px) {
+    .header__brand img {
+        height: 44px;
+    }
+
+    /* iPad: un po’ più aria tra cards e pannelli */
+    .panel {
+        padding: 2.25rem;
+    }
+}
+
+/* Mobile: riduci leggermente padding pannelli */
+@media (max-width: 480px) {
+    .panel {
+        padding: 1.5rem;
+    }
+}
