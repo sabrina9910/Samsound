@@ -13,15 +13,16 @@
 <body>
     <header class="header" id="header">
         <div class="container header__inner">
-            <a class="header__brand" href="#home" aria-label="Samsound Home">
+            <a class="header__brand" href="index.html#home" aria-label="Samsound Home">
                 <img class="brand-logo" src="Assets/Logo_Orizzontale_Color_White.png" alt="Samsound" />
             </a>
 
             <nav class="nav" aria-label="Navigazione principale">
-                <a href="#production" class="nav__link nav__link--production">Production</a>
-                <a href="#education" class="nav__link nav__link--education">Education</a>
-                <a href="#bio" class="nav__link">Bio</a>
-                <a href="#contacts" class="nav__link nav__link--contact">Contatti</a>
+                <a href="index.html#home" class="nav__link">Home</a>
+                <a href="index.html#production" class="nav__link nav__link--production">Production</a>
+                <a href="index.html#education" class="nav__link nav__link--education">Education</a>
+                <a href="bio.html" class="nav__link">Bio</a>
+                <a href="index.html#contacts" class="nav__link nav__link--contact">Contatti</a>
             </nav>
         </div>
     </header>
@@ -35,7 +36,8 @@
         </div>
     </section>
 
-    <section class="about" id="bio">
+    <!-- Preview breve in home (non è più la pagina Bio) -->
+    <section class="about" id="about">
         <div class="container">
             <h2 class="section-title">Chi è Samsound</h2>
 
@@ -46,7 +48,7 @@
                     Louis College of Music di Roma</strong>,
                 l'artista vanta numerose collaborazioni ed esperienze internazionali. Dal 2021 inoltre, Giuseppe
                 Samaritano progetta
-                e conduce percorsi didattici innovativi unendo creatività, tecnica e approccio inclusivo.
+                e conduce percorsi didattici innovativi unendo creatività, tecnica e approccio inclusivo
             </p>
 
             <p class="about__text">
@@ -69,8 +71,8 @@
 
                     <div class="branch-card__content">
                         <p>
-                            Composizioni per media, sync music, sound design.
-                            <strong>Ogni progetto è una nuova storia da narrare</strong> attraverso il suono.
+                            Composizioni per media, sync music, sound design
+                            <strong>Ogni progetto è una nuova storia da narrare</strong> attraverso il suono
                         </p>
 
                         <ul class="branch-card__list">
@@ -97,9 +99,8 @@
 
                     <div class="branch-card__content">
                         <p>
-                            Percorsi formativi progettati con cura, dall'analisi del contesto alle metodologie
-                            inclusive.
-                            <strong>Creatività, disciplina ed empatia</strong> guidano ogni progetto educativo.
+                            Percorsi formativi progettati con cura, dall'analisi del contesto alle metodologie inclusive
+                            <strong>Creatività, disciplina ed empatia</strong> guidano ogni progetto educativo
                         </p>
 
                         <ul class="branch-card__list">
@@ -120,7 +121,6 @@
         </div>
     </section>
 
-    <!-- CONTATTI (blocco unico, riusato anche nelle altre pagine) -->
     <section class="contacts" id="contacts">
         <div class="container">
             <h2 class="section-title">Contatti</h2>
@@ -130,6 +130,14 @@
                     <h3>Seguimi sui social</h3>
 
                     <div class="social-icons" aria-label="Link social">
+                        <a class="social-icon social-icon--mail" href="mailto:info@samsound.it" aria-label="Email">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"
+                                focusable="false">
+                                <path
+                                    d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z" />
+                            </svg>
+                        </a>
+
                         <a class="social-icon" href="https://www.instagram.com/samsoundcomposer/" target="_blank"
                             rel="noopener noreferrer" aria-label="Instagram">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true"
@@ -167,22 +175,11 @@
                         </a>
                     </div>
 
-                    <p class="small-muted" style="margin-top: .9rem;">Instagram, LinkedIn, Spotify e SoundCloud</p>
+                    <p class="small-muted" style="margin-top: .9rem;">Mail, Instagram, LinkedIn, Spotify e SoundCloud
+                    </p>
                 </div>
-
             </div>
-            <div class="contact-email-row">
-                <a class="btn btn--production"
-                    href="mailto:info@samsound.it?subject=Samsound%20%E2%80%94%20Richiesta%20dal%20sito%20&amp;body=Ciao%20Giuseppe,%0A%0ATi%20scrivo%20dal%20sito%20Samsound%20.%0A%0AArgomento:%20%0ARichiesta:%20%0A%0AGrazie!">
-                    Scrivimi via email <span class="btn__arrow">→</span>
-                </a>
-
-                <p class="contact-email-text">info@samsound.it</p>
-            </div>
-
-
         </div>
-
     </section>
 
     <footer class="footer">
