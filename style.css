@@ -52,10 +52,6 @@ a {
     transition: color .3s ease;
 }
 
-a:hover {
-    color: var(--production-hover);
-}
-
 .visually-hidden:not(:focus):not(:active) {
     border: 0;
     clip: rect(0 0 0 0);
@@ -544,6 +540,21 @@ a:hover {
     background-clip: text;
 }
 
+.page--bio .bio-article__title {
+    margin-bottom: 1.5rem;
+}
+
+.page--bio .page-hero__subtitle--bio {
+    margin-bottom: 1.75rem;
+}
+
+
+.page--bio .bio-article__lead {
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    /* più respiro prima del corpo */
+}
+
 .page-hero__subtitle {
     font-size: 1.15rem;
     line-height: 1.8;
@@ -654,7 +665,7 @@ a:hover {
     min-width: 0;
 }
 
-/* QUOTE */
+/* QUOTE – base */
 .quote {
     margin: 2rem 0;
     padding: 1.5rem 1.75rem;
@@ -675,12 +686,39 @@ a:hover {
     font-size: .95rem;
 }
 
-.quote--education {
-    border-color: rgba(245, 158, 11, .25);
-}
-
+/* QUOTE – production (rimane card) */
 .quote--production {
     border-color: rgba(139, 92, 246, .25);
+}
+
+/* QUOTE – education: stile come page-hero__subtitle */
+.quote--education {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+}
+
+.quote--education blockquote {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    font-style: italic;
+    border-left: 3px solid var(--education);
+    padding-left: 1.25rem;
+    margin: 0 auto;
+    max-width: 800px;
+    text-align: left;
+}
+
+.quote--education figcaption {
+    margin-top: .75rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-muted);
+    font-size: .95rem;
+    text-align: left;
 }
 
 /* SERVICE LIST */
@@ -1010,54 +1048,116 @@ a:hover {
     color: var(--text-muted);
 }
 
-/* BIO page */
+/* =================================================
+   BIO PAGE – CLEAN & FINAL VERSION
+================================================= */
+
+/* Hero */
 .page-hero--bio {
-    margin-bottom: 2.25rem;
+    margin-bottom: 3.25rem;
+    /* più aria sotto il titolo hero */
 }
 
+/* Titolo hero in bianco puro */
+.page-hero__title--bio {
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    background-clip: unset;
+    color: var(--text);
+}
+
+/* Media */
 .page--bio .bio-media {
-    margin: 0 auto 2rem;
+    margin: 0 auto 3rem;
     max-width: 1000px;
 }
 
 .page--bio .bio-media__img {
     width: 100%;
     height: auto;
-    border-radius: 18px;
+    border-radius: 20px;
     display: block;
     filter: contrast(1.05) brightness(1.05);
 }
 
+/* Article container */
 .page--bio .bio-article {
-    max-width: 860px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 0.5rem 0 1.25rem;
+    padding: 1rem 0 2rem;
 }
 
+/* Nome */
 .page--bio .bio-article__title {
-    font-size: clamp(1.8rem, 2.8vw, 2.3rem);
-    line-height: 1.2;
-    margin-bottom: 1rem;
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    line-height: 1.15;
+    margin-bottom: 3rem;
+    /* molto più distaccato */
     color: var(--text);
 }
 
-.page--bio .bio-article__lead {
-    color: rgba(255, 255, 255, .80);
-    font-size: 1.12rem;
-    line-height: 1.9;
-    margin-bottom: 1.5rem;
+/* Claim */
+.page--bio .page-hero__subtitle--bio {
+    margin-top: 0.75rem;
+    margin-bottom: 3.25rem;
+    /* più separazione */
 }
 
+/* Lead */
+.page--bio .bio-article__lead {
+    color: rgba(255, 255, 255, .82);
+    font-size: 1.15rem;
+    line-height: 2;
+    margin-bottom: 3.5rem;
+    /* forte stacco editoriale */
+}
+
+/* Corpo */
 .page--bio .bio-article__body p {
-    color: rgba(255, 255, 255, .72);
-    font-size: 1.03rem;
-    line-height: 1.95;
-    margin-bottom: 1.05rem;
+    color: rgba(255, 255, 255, .75);
+    font-size: 1.05rem;
+    line-height: 2;
+    margin-bottom: 2rem;
 }
 
 .page--bio .bio-article__body p:last-child {
     margin-bottom: 0;
 }
+
+/* Citazione Bio */
+.quote--bio {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    margin: 2.25rem 0 3rem;
+}
+
+.quote--bio blockquote {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--text-muted);
+    font-style: italic;
+    border-left: 3px solid var(--text);
+    padding-left: 1.25rem;
+    margin: 0 auto;
+    max-width: 800px;
+    text-align: left;
+}
+
+.quote--bio figcaption {
+    margin-top: .75rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-muted);
+    font-size: .95rem;
+    text-align: left;
+}
+
+
+
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
@@ -1203,4 +1303,137 @@ body .panel.panel--highlight-production .link-section__title {
     font-size: 1.2rem;
     font-weight: 800;
     margin-bottom: 1.1rem;
+}
+
+/* Nota: più piccola e verde neutro spento */
+.edu-note {
+    padding: 1.1rem 1.25rem;
+    margin-top: 1.25rem;
+    border-radius: 12px;
+
+    /* Verde neutro spento */
+    background: rgba(107, 155, 122, 0.10);
+    border: 1px solid rgba(107, 155, 122, 0.50);
+    color: rgba(226, 232, 240, 0.9);
+
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.edu-note .panel__title {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+    color: #6B9B7A;
+}
+
+.edu-note .panel__title::after {
+    background: rgba(107, 155, 122, 0.85);
+    width: 32px;
+    height: 2.5px;
+}
+
+.edu-note strong {
+    color: #6B9B7A;
+    font-weight: 600;
+}
+
+/* Bio: titolo in bianco puro */
+.page-hero__title--bio {
+    background: linear-gradient(135deg, var(--text) 0%, var(--text) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: var(--text) !important;
+    /* Forza bianco su tutti i browser */
+}
+
+
+.nav {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    gap: clamp(1rem, 3vw, 2.5rem);
+    align-items: center;
+}
+
+.nav__link {
+    color: var(--text);
+    font-weight: 500;
+    font-size: .9rem;
+    padding: .3rem 0;
+    position: relative;
+    white-space: nowrap;
+}
+
+.nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    /* Usa colore link */
+    transition: width .3s ease;
+}
+
+.nav__link:hover::after {
+    width: 100%;
+}
+
+/* COLORI STATICI - NO CAMBIAMENTO HOVER */
+.nav__link--production {
+    color: var(--production) !important;
+}
+
+.nav__link--production:hover {
+    color: var(--production) !important;
+}
+
+.nav__link--production::after,
+.nav__link--production:hover::after {
+    background: var(--production) !important;
+}
+
+.nav__link--education,
+.nav__link[href="#projects"] {
+    color: var(--education) !important;
+}
+
+.nav__link--education:hover,
+.nav__link[href="#projects"]:hover {
+    color: var(--education) !important;
+}
+
+.nav__link--education::after,
+.nav__link[href="#projects"]::after,
+.nav__link--education:hover::after,
+.nav__link[href="#projects"]:hover::after {
+    background: var(--education) !important;
+}
+
+.nav__link[href="bio.html"] {
+    color: var(--text) !important;
+}
+
+.nav__link[href="bio.html"]:hover {
+    color: var(--text) !important;
+}
+
+.nav__link[href="bio.html"]::after,
+.nav__link[href="bio.html"]:hover::after {
+    background: var(--text) !important;
+}
+
+.nav__link--contact {
+    color: var(--contact) !important;
+}
+
+.nav__link--contact:hover {
+    color: var(--contact) !important;
+}
+
+.nav__link--contact::after,
+.nav__link--contact:hover::after {
+    background: var(--contact) !important;
 }
