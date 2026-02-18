@@ -73,9 +73,7 @@ a:hover {
     margin: 0 auto;
 }
 
-/* =========================
-   HEADER
-   ========================= */
+/* HEADER */
 .header {
     padding: .45rem 0;
     border-bottom: 1px solid var(--border);
@@ -102,7 +100,6 @@ a:hover {
     height: 72px;
     width: auto;
 }
-
 
 /* NAV centrata */
 .nav {
@@ -162,15 +159,11 @@ a:hover {
     background: var(--contact);
 }
 
-/* =========================
-   HERO
-   ========================= */
+/* HERO */
 .hero {
     padding: 0rem 0 1rem;
-    /* molto vicino all’header, ma lascia un filo sotto */
     text-align: center;
 }
-
 
 .hero__logo {
     display: flex;
@@ -182,14 +175,9 @@ a:hover {
     height: auto;
 }
 
-
-
-/* =========================
-   ABOUT
-   ========================= */
+/* ABOUT */
 .about {
     padding: 0.75rem 0 3rem;
-    /* poco sopra, uguale sotto */
     max-width: 900px;
     margin: 0 auto;
 }
@@ -231,9 +219,7 @@ a:hover {
     color: var(--live);
 }
 
-/* =========================
-   HOME CARDS
-   ========================= */
+/* HOME CARDS */
 .branches {
     padding: 4rem 0 5rem;
 }
@@ -357,9 +343,7 @@ a:hover {
     color: var(--education);
 }
 
-/* =========================
-   BUTTONS
-   ========================= */
+/* BUTTONS */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -407,15 +391,24 @@ a:hover {
     box-shadow: 0 4px 20px rgba(245, 158, 11, .4);
 }
 
-/* Focus accessibile */
+.btn--live {
+    border-color: var(--live);
+    color: var(--live);
+}
+
+.btn--live:hover {
+    background: var(--live);
+    color: var(--black);
+    transform: translateX(4px);
+    box-shadow: 0 4px 20px rgba(47, 123, 255, .35);
+}
+
 .btn:focus-visible {
     outline: 2px solid currentColor;
     outline-offset: 4px;
 }
 
-/* =========================
-   CONTACTS
-   ========================= */
+/* CONTACTS */
 .contacts {
     padding: 3rem 0 4rem;
     max-width: 900px;
@@ -511,21 +504,7 @@ a:hover {
     fill: currentColor;
 }
 
-.contact-email-row {
-    text-align: center;
-    margin-top: 2rem;
-}
-
-.contact-email-text {
-    margin-top: .65rem;
-    color: var(--text-muted);
-    font-size: .92rem;
-    font-style: italic;
-}
-
-/* =========================
-   PAGES
-   ========================= */
+/* PAGES */
 .page {
     padding: 3rem 0 5rem;
 }
@@ -558,6 +537,13 @@ a:hover {
     background-clip: text;
 }
 
+.page-hero__title--bio {
+    background: linear-gradient(135deg, var(--text) 0%, rgba(139, 92, 246, .95) 55%, rgba(167, 139, 250, .9) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
 .page-hero__subtitle {
     font-size: 1.15rem;
     line-height: 1.8;
@@ -578,9 +564,11 @@ a:hover {
     border-color: var(--education);
 }
 
-/* =========================
-   PANELS
-   ========================= */
+.page-hero__subtitle--bio {
+    border-left-color: rgba(139, 92, 246, .55);
+}
+
+/* PANELS */
 .panel {
     background: var(--dark-panel);
     border: 1px solid var(--border);
@@ -597,11 +585,6 @@ a:hover {
 .panel--highlight-education {
     background: linear-gradient(135deg, rgba(245, 158, 11, .05) 0%, rgba(217, 119, 6, .05) 100%);
     border-color: rgba(245, 158, 11, .2);
-}
-
-.panel--highlight-live {
-    background: linear-gradient(135deg, rgba(47, 123, 255, .06) 0%, rgba(27, 87, 201, .06) 100%);
-    border-color: rgba(47, 123, 255, .22);
 }
 
 .panel__title {
@@ -651,9 +634,7 @@ a:hover {
     margin-bottom: 1.5rem;
 }
 
-/* =========================
-   BIO SPLIT
-   ========================= */
+/* BIO SPLIT */
 .bio-split {
     display: grid;
     grid-template-columns: 280px 1fr;
@@ -673,9 +654,7 @@ a:hover {
     min-width: 0;
 }
 
-/* =========================
-   QUOTE
-   ========================= */
+/* QUOTE */
 .quote {
     margin: 2rem 0;
     padding: 1.5rem 1.75rem;
@@ -704,9 +683,7 @@ a:hover {
     border-color: rgba(139, 92, 246, .25);
 }
 
-/* =========================
-   SERVICE LIST
-   ========================= */
+/* SERVICE LIST */
 .service-list {
     list-style: none;
 }
@@ -744,9 +721,7 @@ a:hover {
     font-weight: 600;
 }
 
-/* =========================
-   TAGS (client)
-   ========================= */
+/* TAGS */
 .clients-grid {
     display: flex;
     flex-wrap: wrap;
@@ -787,9 +762,7 @@ a:hover {
     transform: translateY(-2px);
 }
 
-/* =========================
-   EDUCATION NOTE
-   ========================= */
+/* EDUCATION NOTE */
 .edu-note {
     border-color: rgba(245, 11, 11, 0.35);
     background: linear-gradient(135deg, rgba(245, 11, 11, 0.35), rgba(245, 11, 11, 0.35) 100%);
@@ -799,9 +772,7 @@ a:hover {
     background: var(--education);
 }
 
-/* =========================
-   FOOTER
-   ========================= */
+/* FOOTER */
 .footer {
     border-top: 1px solid var(--border);
     padding: 3rem 0 2rem;
@@ -838,13 +809,15 @@ a:hover {
 .collab-logo {
     height: 52px;
     width: auto;
-    filter: none;
-    opacity: 1;
-    transition: transform .25s ease;
+    opacity: .92;
+    filter: brightness(1.15) contrast(1.1);
+    transition: transform .25s ease, opacity .25s ease, filter .25s ease;
 }
 
 .collab-logo:hover {
     transform: scale(1.06);
+    opacity: 1;
+    filter: brightness(1.25) contrast(1.15);
 }
 
 .collab-marquee:hover .collab-track {
@@ -897,9 +870,21 @@ a:hover {
     scrollbar-width: none;
 }
 
-/* =========================
-   LINK CARDS
-   ========================= */
+/* Footer: evita link viola (anche visited) */
+.footer a,
+.footer a:link,
+.footer a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer a:hover,
+.footer a:focus-visible {
+    color: var(--text);
+    text-decoration: underline;
+}
+
+/* LINK CARDS */
 .link-sections {
     display: grid;
     gap: 2rem;
@@ -917,6 +902,7 @@ a:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1rem;
+    margin-bottom: 1.25rem;
 }
 
 .link-card {
@@ -980,7 +966,7 @@ a:hover {
     transform: translateX(4px);
 }
 
-/* Card multi (Education: 2 bottoni dentro) */
+/* Card multi */
 .link-card--multi {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
@@ -1011,7 +997,6 @@ a:hover {
     color: var(--education-hover);
 }
 
-/* Education: evita viola globale dentro le link-cards */
 .link-cards--education a:hover {
     color: inherit;
 }
@@ -1025,9 +1010,56 @@ a:hover {
     color: var(--text-muted);
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+/* BIO page */
+.page-hero--bio {
+    margin-bottom: 2.25rem;
+}
+
+.page--bio .bio-media {
+    margin: 0 auto 2rem;
+    max-width: 1000px;
+}
+
+.page--bio .bio-media__img {
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+    display: block;
+    filter: contrast(1.05) brightness(1.05);
+}
+
+.page--bio .bio-article {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0.5rem 0 1.25rem;
+}
+
+.page--bio .bio-article__title {
+    font-size: clamp(1.8rem, 2.8vw, 2.3rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.page--bio .bio-article__lead {
+    color: rgba(255, 255, 255, .80);
+    font-size: 1.12rem;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+}
+
+.page--bio .bio-article__body p {
+    color: rgba(255, 255, 255, .72);
+    font-size: 1.03rem;
+    line-height: 1.95;
+    margin-bottom: 1.05rem;
+}
+
+.page--bio .bio-article__body p:last-child {
+    margin-bottom: 0;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
     .container {
         width: calc(100% - 2rem);
@@ -1057,7 +1089,6 @@ a:hover {
         padding: 0.25rem 0 0rem;
         text-align: center;
     }
-
 
     .hero__logo img {
         width: clamp(240px, 70vw, 380px);
@@ -1139,7 +1170,7 @@ a:hover {
     }
 }
 
-/* Tablet (iPad): 2 colonne per le link-cards */
+/* Tablet */
 @media (min-width: 600px) and (max-width: 1024px) {
     .link-cards {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1166,221 +1197,10 @@ a:hover {
     }
 }
 
-.link-cards {
-    margin-bottom: 1.25rem;
-}
-
+/* Production: titoli sezioni Portfolio più grandi e in viola production */
 body .panel.panel--highlight-production .link-section__title {
-    color: var(--production);
+    color: var(--production-hover);
     font-size: 1.2rem;
     font-weight: 800;
     margin-bottom: 1.1rem;
-}
-
-/* BIO page: immagine grande e più visibile, fuori dalla card */
-.bio-hero {
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 1.5rem;
-    align-items: stretch;
-    margin-bottom: 1.5rem;
-}
-
-.bio-hero__media {
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    overflow: hidden;
-    background: rgba(255, 255, 255, .04);
-    min-height: 420px;
-}
-
-.bio-hero__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-.bio-hero__panel {
-    margin-bottom: 0;
-}
-
-@media (max-width: 768px) {
-    .bio-hero {
-        grid-template-columns: 1fr;
-    }
-
-    .bio-hero__media {
-        min-height: 320px;
-    }
-}
-
-/* BIO: cover foto full-width, più “wow” */
-.page--bio .bio-cover {
-    border-radius: 22px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    background: rgba(255, 255, 255, .04);
-    margin-bottom: 1.5rem;
-}
-
-.page--bio .bio-cover__img {
-    width: 100%;
-    height: clamp(320px, 48vw, 520px);
-    object-fit: cover;
-    object-position: center 30%;
-    display: block;
-}
-
-/* Spazio tra cover e card intro */
-.page--bio .bio-intro {
-    margin-top: -0.75rem;
-    /* leggero overlap “premium”, se non ti piace lo metto a 0 */
-}
-
-/* =========================
-   BIO (nuova cover senza taglio)
-   ========================= */
-.page--bio .bio-cover {
-    border-radius: 22px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    background: rgba(255, 255, 255, .04);
-    margin-bottom: 1.5rem;
-}
-
-.page--bio .bio-cover__img {
-    width: 100%;
-    height: clamp(320px, 48vw, 560px);
-    object-fit: contain;
-    /* <-- così non taglia */
-    object-position: center;
-    display: block;
-    background: #000;
-    /* bande nere pulite se l’immagine non riempie */
-}
-
-.page--bio .bio-intro {
-    margin-top: 0;
-}
-
-/* =========================
-   BIO: layout più “editoriale”
-   ========================= */
-
-.page-hero--bio {
-    margin-bottom: 2.25rem;
-}
-
-.page-hero__title--bio {
-    background: linear-gradient(135deg, var(--text) 0%, rgba(139, 92, 246, .95) 55%, rgba(167, 139, 250, .9) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.page-hero__subtitle--bio {
-    border-left-color: rgba(139, 92, 246, .55);
-}
-
-/* Foto senza card/cornice: più pulita */
-.page--bio .bio-media {
-    margin: 0 auto 2rem;
-    max-width: 1000px;
-}
-
-.page--bio .bio-media__img {
-    width: 100%;
-    height: auto;
-    border-radius: 18px;
-    display: block;
-
-    /* leggero boost per renderla più “viva” su sfondo nero */
-    filter: contrast(1.05) brightness(1.05);
-}
-
-/* Testo come articolo */
-.page--bio .bio-article {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 0.5rem 0 1.25rem;
-}
-
-.page--bio .bio-article__title {
-    font-size: clamp(1.8rem, 2.8vw, 2.3rem);
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    color: var(--text);
-}
-
-.page--bio .bio-article__lead {
-    color: rgba(255, 255, 255, .80);
-    font-size: 1.12rem;
-    line-height: 1.9;
-    margin-bottom: 1.5rem;
-}
-
-.page--bio .bio-article__body p {
-    color: rgba(255, 255, 255, .72);
-    font-size: 1.03rem;
-    line-height: 1.95;
-    margin-bottom: 1.05rem;
-}
-
-.page--bio .bio-article__body p:last-child {
-    margin-bottom: 0;
-}
-
-/* =========================
-   LOGHI: uniforma resa su sfondo scuro
-   ========================= */
-
-.collab-logo {
-    opacity: .92;
-    filter: brightness(1.15) contrast(1.1);
-}
-
-.collab-logo:hover {
-    opacity: 1;
-    filter: brightness(1.25) contrast(1.15);
-}
-
-/* Se alcuni loghi diventano “sparati”, abbassa brightness a 1.05 */
-
-.btn--live {
-    border-color: #2F7BFF;
-    color: #2F7BFF;
-}
-
-.btn--live:hover {
-    background: #2F7BFF;
-    color: var(--black);
-    transform: translateX(4px);
-    box-shadow: 0 4px 20px rgba(47, 123, 255, .35);
-}
-
-.btn--live {
-    border-color: #2F7BFF;
-    color: #2F7BFF;
-}
-
-.btn--live:hover {
-    background: #2F7BFF;
-    color: var(--black);
-    transform: translateX(4px);
-    box-shadow: 0 4px 20px rgba(47, 123, 255, .35);
-}
-
-/* Footer: evita link viola (anche visited) */
-.footer a,
-.footer a:link,
-.footer a:visited {
-    color: inherit;
-    text-decoration: none;
-}
-
-.footer a:hover,
-.footer a:focus-visible {
-    color: var(--text);
-    text-decoration: underline;
 }
