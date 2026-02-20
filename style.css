@@ -123,7 +123,7 @@ a {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--text);
+    background: currentColor;
     transition: width .3s ease;
 }
 
@@ -131,28 +131,74 @@ a {
     width: 100%;
 }
 
+/* COLORI NAV - statici, senza hover color change */
 .nav__link--production {
-    color: var(--production);
+    color: var(--production) !important;
 }
 
-.nav__link--production::after {
-    background: var(--production);
+.nav__link--production:hover {
+    color: var(--production) !important;
 }
 
-.nav__link--education {
-    color: var(--education);
+.nav__link--production::after,
+.nav__link--production:hover::after {
+    background: var(--production) !important;
 }
 
-.nav__link--education::after {
-    background: var(--education);
+.nav__link--education,
+.nav__link[href="#projects"] {
+    color: var(--education) !important;
+}
+
+.nav__link--education:hover,
+.nav__link[href="#projects"]:hover {
+    color: var(--education) !important;
+}
+
+.nav__link--education::after,
+.nav__link[href="#projects"]::after,
+.nav__link--education:hover::after,
+.nav__link[href="#projects"]:hover::after {
+    background: var(--education) !important;
+}
+
+.nav__link--live {
+    color: var(--live) !important;
+}
+
+.nav__link--live:hover {
+    color: var(--live) !important;
+}
+
+.nav__link--live::after,
+.nav__link--live:hover::after {
+    background: var(--live) !important;
 }
 
 .nav__link--contact {
-    color: var(--contact);
+    color: var(--contact) !important;
 }
 
-.nav__link--contact::after {
-    background: var(--contact);
+.nav__link--contact:hover {
+    color: var(--contact) !important;
+}
+
+.nav__link--contact::after,
+.nav__link--contact:hover::after {
+    background: var(--contact) !important;
+}
+
+.nav__link[href="bio.html"] {
+    color: var(--text) !important;
+}
+
+.nav__link[href="bio.html"]:hover {
+    color: var(--text) !important;
+}
+
+.nav__link[href="bio.html"]::after,
+.nav__link[href="bio.html"]:hover::after {
+    background: var(--text) !important;
 }
 
 /* HERO */
@@ -556,11 +602,135 @@ a {
     background-clip: text;
 }
 
-.page-hero__title--bio {
-    background: linear-gradient(135deg, var(--text) 0%, rgba(139, 92, 246, .95) 55%, rgba(167, 139, 250, .9) 100%);
+/* LIVE H1 - Sfumato bianco → blu, come production e education */
+.page-hero__title--live {
+    background: linear-gradient(135deg, var(--text) 0%, var(--live) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+/* LIVE INTRO CARD */
+.live-intro-card {
+    text-align: center;
+    padding: 2.5rem 2rem;
+}
+
+.live-intro-card__label {
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--live);
+    margin-bottom: 1.75rem;
+    opacity: .85;
+}
+
+.live-intro-card__venues {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-bottom: 1.75rem;
+}
+
+.live-venue-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .35rem;
+}
+
+.live-venue-badge__icon {
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: .25rem;
+    filter: drop-shadow(0 0 8px rgba(47, 123, 255, .45));
+}
+
+.live-venue-badge__name {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -.01em;
+    line-height: 1;
+}
+
+.live-venue-badge__sub {
+    font-size: .82rem;
+    color: var(--live-hover);
+    font-weight: 500;
+    letter-spacing: .03em;
+}
+
+.live-intro-card__divider {
+    width: 1px;
+    height: 64px;
+    background: linear-gradient(to bottom, transparent, rgba(47, 123, 255, .4), transparent);
+    flex-shrink: 0;
+}
+
+.live-intro-card__tagline {
+    font-size: .95rem;
+    color: var(--text-muted);
+    font-style: italic;
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* MEDIA GALLERY VIDEO */
+.media-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: .5rem;
+}
+
+.media-video-item {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+}
+
+.media-video-player {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: #000;
+    display: block;
+    max-height: 320px;
+    object-fit: contain;
+}
+
+.media-video-caption {
+    font-size: .88rem;
+    color: var(--live-hover);
+    font-weight: 600;
+    letter-spacing: .02em;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .live-intro-card__venues {
+        gap: 1.5rem;
+    }
+
+    .live-venue-badge__name {
+        font-size: 1.3rem;
+    }
+}
+
+
+.page-hero__title--bio {
+    color: var(--text);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
 }
 
 .page--bio .bio-article__title {
@@ -571,11 +741,9 @@ a {
     margin-bottom: 1.75rem;
 }
 
-
 .page--bio .bio-article__lead {
     margin-top: 0.5rem;
     margin-bottom: 2rem;
-    /* più respiro prima del corpo */
 }
 
 .page-hero__subtitle {
@@ -598,8 +766,22 @@ a {
     border-color: var(--education);
 }
 
+.page-hero__subtitle--live {
+    border-color: var(--live);
+}
+
 .page-hero__subtitle--bio {
     border-left-color: rgba(139, 92, 246, .55);
+}
+
+/* Accent line - Live */
+.accent-border-live {
+    border-left: 3px solid var(--live);
+    padding-left: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    margin-left: -2rem;
+    width: calc(100% + 2rem);
 }
 
 /* PANELS */
@@ -619,6 +801,11 @@ a {
 .panel--highlight-education {
     background: linear-gradient(135deg, rgba(245, 158, 11, .05) 0%, rgba(217, 119, 6, .05) 100%);
     border-color: rgba(245, 158, 11, .2);
+}
+
+.panel--highlight-live {
+    background: linear-gradient(135deg, rgba(47, 123, 255, .05) 0%, rgba(27, 87, 201, .05) 100%);
+    border-color: rgba(47, 123, 255, .2);
 }
 
 .panel__title {
@@ -648,6 +835,10 @@ a {
     background: var(--education);
 }
 
+.panel__title--live::after {
+    background: var(--live);
+}
+
 .panel p {
     color: var(--text-muted);
     margin-bottom: 1rem;
@@ -668,6 +859,11 @@ a {
     margin-bottom: 1.5rem;
 }
 
+.panel__img-live {
+    border-radius: 16px;
+    border: 1px solid var(--border);
+}
+
 /* BIO SPLIT */
 .bio-split {
     display: grid;
@@ -682,6 +878,20 @@ a {
     object-fit: cover;
     border-radius: 14px;
     border: 1px solid var(--border);
+}
+
+/* Foto adattata all'altezza della card con spazio dai bordi */
+.bio-split__img--full {
+    width: 100%;
+    height: auto;
+    max-height: calc(100% - 1rem);
+    object-fit: contain;
+    object-position: center top;
+    align-self: stretch;
+    margin-block: 0.5rem;
+    background: transparent;
+    border: none;
+    border-radius: 0;
 }
 
 .bio-split__text {
@@ -709,12 +919,12 @@ a {
     font-size: .95rem;
 }
 
-/* QUOTE – production (rimane card) */
+/* QUOTE – production */
 .quote--production {
     border-color: rgba(139, 92, 246, .25);
 }
 
-/* QUOTE – education: stile come page-hero__subtitle */
+/* QUOTE – education */
 .quote--education {
     padding: 0;
     border: none;
@@ -735,6 +945,68 @@ a {
 }
 
 .quote--education figcaption {
+    margin-top: .75rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-muted);
+    font-size: .95rem;
+    text-align: left;
+}
+
+/* QUOTE – bio */
+.quote--bio {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    margin: 2.25rem 0 3rem;
+}
+
+.quote--bio blockquote {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--text-muted);
+    font-style: italic;
+    border-left: 3px solid var(--text);
+    padding-left: 1.25rem;
+    margin: 0 auto;
+    max-width: 800px;
+    text-align: left;
+}
+
+.quote--bio figcaption {
+    margin-top: .75rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-muted);
+    font-size: .95rem;
+    text-align: left;
+}
+
+/* QUOTE – live */
+.quote--live {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    margin: 2.25rem 0 3rem;
+}
+
+.quote--live blockquote {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--text-muted);
+    font-style: italic;
+    border-left: 3px solid var(--live);
+    padding-left: 1.25rem;
+    margin: 0 auto;
+    max-width: 800px;
+    text-align: left;
+}
+
+.quote--live figcaption {
     margin-top: .75rem;
     max-width: 800px;
     margin-left: auto;
@@ -775,6 +1047,10 @@ a {
 
 .service-list--education li::before {
     color: var(--education);
+}
+
+.service-list--live li::before {
+    color: var(--live);
 }
 
 .service-list li strong {
@@ -823,14 +1099,38 @@ a {
     transform: translateY(-2px);
 }
 
+.client-tag--live {
+    background: rgba(47, 123, 255, .10);
+    border-color: rgba(47, 123, 255, .30);
+}
+
 /* EDUCATION NOTE */
 .edu-note {
-    border-color: rgba(245, 11, 11, 0.35);
-    background: linear-gradient(135deg, rgba(245, 11, 11, 0.35), rgba(245, 11, 11, 0.35) 100%);
+    padding: 1.1rem 1.25rem;
+    margin-top: 1.25rem;
+    border-radius: 12px;
+    background: rgba(107, 155, 122, 0.10);
+    border: 1px solid rgba(107, 155, 122, 0.50);
+    color: rgba(226, 232, 240, 0.9);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.edu-note .panel__title {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+    color: #6B9B7A;
 }
 
 .edu-note .panel__title::after {
-    background: var(--education);
+    background: rgba(107, 155, 122, 0.85);
+    width: 32px;
+    height: 2.5px;
+}
+
+.edu-note strong {
+    color: #6B9B7A;
+    font-weight: 600;
 }
 
 /* FOOTER */
@@ -869,14 +1169,13 @@ a {
 
 @keyframes collab-marquee {
     from {
-        transform: translate3d(0, 0, 0);
+        transform: translateX(0);
     }
 
     to {
-        transform: translate3d(-50%, 0, 0);
+        transform: translateX(-50%);
     }
 }
-
 
 .collab-logo {
     height: 52px;
@@ -890,17 +1189,6 @@ a {
     transform: scale(1.06);
     opacity: 1;
     filter: brightness(1.25) contrast(1.15);
-}
-
-
-@keyframes collab-marquee {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-50%);
-    }
 }
 
 .footer__bottom {
@@ -920,26 +1208,22 @@ a {
     overflow-y: hidden;
     mask-image: none;
     -webkit-overflow-scrolling: touch;
-}
-
-.no-marquee .collab-track {
-    animation: none !important;
-    transform: translateX(0) !important;
-
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 0;
-    justify-content: space-evenly;
-    align-items: center;
+    scrollbar-width: none;
 }
 
 .no-marquee .collab-marquee::-webkit-scrollbar {
     display: none;
 }
 
-.no-marquee .collab-marquee {
-    scrollbar-width: none;
+.no-marquee .collab-track {
+    animation: none !important;
+    transform: translateX(0) !important;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 /* Footer: evita link viola (anche visited) */
@@ -1038,6 +1322,17 @@ a {
     transform: translateX(4px);
 }
 
+/* Hover Live */
+.link-cards--live .link-card:hover {
+    border-color: rgba(47, 123, 255, .55);
+    background: rgba(47, 123, 255, .08);
+    transform: translateY(-3px);
+}
+
+.link-cards--live .link-card:hover .link-card__arrow {
+    transform: translateX(4px);
+}
+
 /* Card multi */
 .link-card--multi {
     grid-template-columns: 1fr;
@@ -1083,22 +1378,11 @@ a {
 }
 
 /* =================================================
-   BIO PAGE – CLEAN & FINAL VERSION
+   BIO PAGE
 ================================================= */
 
-/* Hero */
 .page-hero--bio {
     margin-bottom: 3.25rem;
-    /* più aria sotto il titolo hero */
-}
-
-/* Titolo hero in bianco puro */
-.page-hero__title--bio {
-    background: none;
-    -webkit-background-clip: unset;
-    -webkit-text-fill-color: unset;
-    background-clip: unset;
-    color: var(--text);
 }
 
 /* Media */
@@ -1127,7 +1411,6 @@ a {
     font-size: clamp(2rem, 3vw, 2.5rem);
     line-height: 1.15;
     margin-bottom: 3rem;
-    /* molto più distaccato */
     color: var(--text);
 }
 
@@ -1135,7 +1418,6 @@ a {
 .page--bio .page-hero__subtitle--bio {
     margin-top: 0.75rem;
     margin-bottom: 3.25rem;
-    /* più separazione */
 }
 
 /* Lead */
@@ -1144,7 +1426,6 @@ a {
     font-size: 1.15rem;
     line-height: 2;
     margin-bottom: 3.5rem;
-    /* forte stacco editoriale */
 }
 
 /* Corpo */
@@ -1159,39 +1440,33 @@ a {
     margin-bottom: 0;
 }
 
-/* Citazione Bio */
-.quote--bio {
-    padding: 0;
-    border: none;
-    border-radius: 0;
-    background: transparent;
-    margin: 2.25rem 0 3rem;
+/* BIO MEDIA (shared: bio e live) */
+.bio-media {
+    margin: 0 auto 3rem;
+    max-width: 1000px;
 }
 
-.quote--bio blockquote {
-    font-size: 1.15rem;
-    line-height: 1.9;
-    color: var(--text-muted);
-    font-style: italic;
-    border-left: 3px solid var(--text);
-    padding-left: 1.25rem;
-    margin: 0 auto;
-    max-width: 800px;
-    text-align: left;
+.bio-media__img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    display: block;
+    filter: contrast(1.05) brightness(1.05);
+    border: 1px solid var(--border);
 }
 
-.quote--bio figcaption {
-    margin-top: .75rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    color: var(--text-muted);
-    font-size: .95rem;
-    text-align: left;
+/* Production: titoli sezioni Portfolio più grandi e in viola */
+body .panel.panel--highlight-production .link-section__title {
+    color: var(--production-hover);
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 1.1rem;
 }
 
-
-
+/* BACK LINK */
+.back-link {
+    margin-top: 2rem;
+}
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
@@ -1319,6 +1594,42 @@ a {
     }
 }
 
+/* Desktop grandi schermi >1400px */
+@media (min-width: 1400px) {
+    .container {
+        width: min(1400px, calc(100% - 4rem));
+    }
+
+    .bio-split {
+        grid-template-columns: 380px 1fr;
+        gap: 3rem;
+        padding: 3rem;
+    }
+
+    .bio-split__img {
+        height: 380px;
+        border-radius: 24px;
+    }
+
+    .bio-split__text p {
+        font-size: 1.08rem;
+        max-width: 850px;
+    }
+
+    .link-cards {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .nav {
+        gap: 3rem;
+    }
+
+    .clients-grid {
+        gap: 1rem;
+    }
+}
+
 /* Riduci animazioni se l'utente lo chiede */
 @media (prefers-reduced-motion: reduce) {
     .collab-track {
@@ -1329,444 +1640,4 @@ a {
         overflow-x: auto;
         mask-image: none;
     }
-}
-
-/* Production: titoli sezioni Portfolio più grandi e in viola production */
-body .panel.panel--highlight-production .link-section__title {
-    color: var(--production-hover);
-    font-size: 1.2rem;
-    font-weight: 800;
-    margin-bottom: 1.1rem;
-}
-
-/* Nota: più piccola e verde neutro spento */
-.edu-note {
-    padding: 1.1rem 1.25rem;
-    margin-top: 1.25rem;
-    border-radius: 12px;
-
-    /* Verde neutro spento */
-    background: rgba(107, 155, 122, 0.10);
-    border: 1px solid rgba(107, 155, 122, 0.50);
-    color: rgba(226, 232, 240, 0.9);
-
-    font-size: 0.9rem;
-    line-height: 1.6;
-}
-
-.edu-note .panel__title {
-    font-size: 1rem;
-    margin-bottom: 0.4rem;
-    color: #6B9B7A;
-}
-
-.edu-note .panel__title::after {
-    background: rgba(107, 155, 122, 0.85);
-    width: 32px;
-    height: 2.5px;
-}
-
-.edu-note strong {
-    color: #6B9B7A;
-    font-weight: 600;
-}
-
-/* Bio: titolo in bianco puro */
-.page-hero__title--bio {
-    background: linear-gradient(135deg, var(--text) 0%, var(--text) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: var(--text) !important;
-    /* Forza bianco su tutti i browser */
-}
-
-
-.nav {
-    flex: 1 1 auto;
-    display: flex;
-    justify-content: center;
-    gap: clamp(1rem, 3vw, 2.5rem);
-    align-items: center;
-}
-
-.nav__link {
-    color: var(--text);
-    font-weight: 500;
-    font-size: .9rem;
-    padding: .3rem 0;
-    position: relative;
-    white-space: nowrap;
-}
-
-.nav__link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: currentColor;
-    /* Usa colore link */
-    transition: width .3s ease;
-}
-
-.nav__link:hover::after {
-    width: 100%;
-}
-
-/* COLORI STATICI - NO CAMBIAMENTO HOVER */
-.nav__link--production {
-    color: var(--production) !important;
-}
-
-.nav__link--production:hover {
-    color: var(--production) !important;
-}
-
-.nav__link--production::after,
-.nav__link--production:hover::after {
-    background: var(--production) !important;
-}
-
-.nav__link--education,
-.nav__link[href="#projects"] {
-    color: var(--education) !important;
-}
-
-.nav__link--education:hover,
-.nav__link[href="#projects"]:hover {
-    color: var(--education) !important;
-}
-
-.nav__link--education::after,
-.nav__link[href="#projects"]::after,
-.nav__link--education:hover::after,
-.nav__link[href="#projects"]:hover::after {
-    background: var(--education) !important;
-}
-
-.nav__link[href="bio.html"] {
-    color: var(--text) !important;
-}
-
-.nav__link[href="bio.html"]:hover {
-    color: var(--text) !important;
-}
-
-.nav__link[href="bio.html"]::after,
-.nav__link[href="bio.html"]:hover::after {
-    background: var(--text) !important;
-}
-
-.nav__link--contact {
-    color: var(--contact) !important;
-}
-
-.nav__link--contact:hover {
-    color: var(--contact) !important;
-}
-
-.nav__link--contact::after,
-.nav__link--contact:hover::after {
-    background: var(--contact) !important;
-}
-
-.nav__link--live {
-    color: var(--live) !important;
-}
-
-.nav__link--live:hover {
-    color: var(--live) !important;
-}
-
-.nav__link--live::after,
-.nav__link--live:hover::after {
-    background: var(--live) !important;
-}
-
-/* DESKTOP GRANDI SCHERMI >1400px */
-@media (min-width: 1400px) {
-    .container {
-        width: min(1400px, calc(100% - 4rem));
-        /* Più largo max */
-    }
-
-    .bio-split {
-        grid-template-columns: 380px 1fr;
-        /* Immagine più grande */
-        gap: 3rem;
-        padding: 3rem;
-    }
-
-    .bio-split__img {
-        height: 380px;
-        /* Più imponente */
-        border-radius: 24px;
-    }
-
-    .bio-split__text p {
-        font-size: 1.08rem;
-        /* Testo leggibile */
-        max-width: 850px;
-    }
-
-    .link-cards {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        /* Card più spaziose */
-        gap: 1.5rem;
-    }
-
-    .nav {
-        gap: 3rem;
-        /* Nav più ariosa */
-    }
-
-    .clients-grid {
-        gap: 1rem;
-        /* Tag più distanziati */
-    }
-}
-
-.page-hero__title--live {
-    background: linear-gradient(135deg, var(--text) 0%, var(--live-hover) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.page-hero__subtitle--live {
-    border-color: var(--live);
-}
-
-.panel--highlight-live {
-    background: linear-gradient(135deg, rgba(47, 123, 255, .05) 0%, rgba(27, 87, 201, .05) 100%);
-    border-color: rgba(47, 123, 255, .2);
-}
-
-.panel__title--live::after {
-    background: var(--live);
-}
-
-.service-list--live li::before {
-    color: var(--live);
-}
-
-.client-tag--live {
-    background: rgba(47, 123, 255, .10);
-    border-color: rgba(47, 123, 255, .30);
-}
-
-/* LIVE PAGE - HERO */
-.page-hero__title--live {
-    background: linear-gradient(135deg, var(--text) 0%, var(--live-hover) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.page-hero__subtitle--live {
-    border-left-color: var(--live);
-}
-
-/* LIVE PANELS */
-.panel--highlight-live {
-    background: linear-gradient(135deg, rgba(47, 123, 255, 0.05) 0%, rgba(27, 87, 201, 0.05) 100%);
-    border-color: rgba(47, 123, 255, 0.2);
-}
-
-.panel__title--live::after {
-    background: var(--live);
-}
-
-.panel__img-live {
-    border-radius: 16px;
-    border: 1px solid var(--border);
-}
-
-/* LIVE NAV (già presente) */
-.nav__link--live {
-    color: var(--live) !important;
-}
-
-/* LIVE - FOTO BIO STYLE */
-.bio-media {
-    margin: 0 auto 3rem;
-    max-width: 1000px;
-}
-
-.bio-media__img {
-    width: 100%;
-    height: auto;
-    border-radius: 20px;
-    display: block;
-    filter: contrast(1.05) brightness(1.05);
-    border: 1px solid var(--border);
-}
-
-/* HERO LIVE - Centrato e full-width ottimizzato */
-.hero-live {
-    padding: 4rem 0 2rem;
-    text-align: center;
-    position: relative;
-}
-
-.page-hero__title--live {
-    background: linear-gradient(135deg, var(--text) 0%, var(--live-hover) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-size: clamp(3.5rem, 8vw, 6rem);
-    /* Più grande e centrato */
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    line-height: 0.9;
-    margin: 0;
-    text-align: center;
-    position: relative;
-    z-index: 2;
-}
-
-.hero-live__img {
-    width: 100%;
-    height: clamp(500px, 60vh, 700px);
-    /* Altezza proporzionata */
-    object-fit: cover;
-    object-position: center;
-    border-radius: 0;
-    /* Rimuovi radius per effetto hero full */
-    filter: brightness(0.85) contrast(1.1);
-}
-
-/* Rimuovi radius dalla sezione bio-media per hero */
-.bio-media.panel--highlight-live {
-    margin: 0;
-    border-radius: 0;
-    border: none;
-    overflow: hidden;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .hero-live {
-        padding: 2rem 0 1rem;
-    }
-
-    .page-hero__title--live {
-        font-size: clamp(2.5rem, 12vw, 4rem);
-    }
-
-    .hero-live__img {
-        height: clamp(350px, 50vh, 450px);
-    }
-}
-
-/* LIVE - STILE IDENTICO A BIO (solo hero + foto + citazione) */
-
-/* Hero section */
-.page-hero--live {
-    margin-bottom: 3.25rem;
-}
-
-/* Titolo H1 bianco puro (come bio) */
-.page-hero__title--live {
-    background: none;
-    -webkit-background-clip: unset;
-    -webkit-text-fill-color: unset;
-    background-clip: unset;
-    color: var(--text) !important;
-    font-size: clamp(2rem, 3vw, 2.5rem);
-    line-height: 1.15;
-    margin-bottom: 3rem;
-    text-align: center;
-}
-
-/* Foto hero stile bio */
-.page--live .bio-media {
-    margin: 0 auto 3rem;
-    max-width: 1000px;
-}
-
-.page--live .bio-media__img {
-    width: 100%;
-    height: auto;
-    border-radius: 20px;
-    display: block;
-    filter: contrast(1.05) brightness(1.05);
-    border: 1px solid var(--border);
-}
-
-/* Citazione stile bio */
-.quote--live {
-    padding: 0;
-    border: none;
-    border-radius: 0;
-    background: transparent;
-    margin: 2.25rem 0 3rem;
-}
-
-.quote--live blockquote {
-    font-size: 1.15rem;
-    line-height: 1.9;
-    color: var(--text-muted);
-    font-style: italic;
-    border-left: 3px solid var(--live);
-    padding-left: 1.25rem;
-    margin: 0 auto;
-    max-width: 800px;
-    text-align: left;
-}
-
-.quote--live figcaption {
-    margin-top: .75rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    color: var(--text-muted);
-    font-size: .95rem;
-    text-align: left;
-}
-
-/* LIVE H1 - Sfumato blu (priorità massima) */
-.page-hero__title--live {
-    background: linear-gradient(135deg, var(--text) 0%, var(--live-hover) 70%, var(--live) 100%) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    background-clip: text !important;
-    color: var(--live) !important;
-    /* Fallback blu solido */
-    font-size: clamp(2rem, 3vw, 2.5rem) !important;
-    line-height: 1.15 !important;
-}
-
-/* LIVE subtitle - Bordo blu */
-.page-hero__subtitle--live {
-    border-left-color: var(--live) !important;
-}
-
-/* Live page - Stile bio MA con colori live */
-.page.page--live .page-hero__title {
-    margin-bottom: 3rem;
-}
-
-.page.page--live .bio-media {
-    margin: 0 auto 3rem;
-    max-width: 1000px;
-
-}
-
-/* LIVE H1 - FORZA BLU SFUMATO (ultima regola vince) */
-h1.page-hero__title--live {
-    background: linear-gradient(135deg, #ffffff 0%, #72A7FF 70%, #2F7BFF 100%) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    background-clip: text !important;
-    color: #2F7BFF !important;
-    font-size: clamp(2rem, 3vw, 2.5rem) !important;
-    line-height: 1.15 !important;
-}
-
-/* LIVE subtitle */
-.page-hero__subtitle--live {
-    border-left-color: #2F7BFF !important;
 }

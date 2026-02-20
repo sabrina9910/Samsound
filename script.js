@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 track.dataset.duplicated = 'true';
             }
 
-            const speedPxPerSec = 90;
+            const speedPxPerSec = 75;
 
             requestAnimationFrame(() => {
                 const halfWidth = track.scrollWidth / 2;
