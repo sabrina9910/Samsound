@@ -11,14 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const href = link.getAttribute('href');
             const target = href ? document.querySelector(href) : null;
 
-            // FIX: se l'anchor non esiste, NON bloccare il comportamento default
-            // (così non "rompe" click su link/anchor sbagliati o non presenti)
             if (!target) return;
 
-            e.preventDefault(); // blocca il salto standard, così applichiamo l'offset [web:573]
+            e.preventDefault();
 
             const headerH = header ? header.offsetHeight : 0;
-            const targetTop = target.getBoundingClientRect().top + window.scrollY; // posizione assoluta [web:507]
+            const targetTop = target.getBoundingClientRect().top + window.scrollY;
 
             const y = href === '#home'
                 ? 0
@@ -26,19 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             window.scrollTo({ top: y, behavior: 'smooth' });
         });
-    }); // querySelectorAll ritorna una NodeList statica [web:501]
+    });
 
-    // Marquee: duplica automaticamente ogni track (se non .no-marquee)
+    // Marquee: calcola durata dinamica
     const noMarquee = document.body.classList.contains('no-marquee');
     const tracks = document.querySelectorAll('.collab-track');
 
     if (!noMarquee) {
         tracks.forEach((track) => {
-            if (!track.dataset.duplicated) {
-                track.innerHTML += track.innerHTML;
-                track.dataset.duplicated = 'true';
-            }
-
             const speedPxPerSec = 75;
 
             requestAnimationFrame(() => {
