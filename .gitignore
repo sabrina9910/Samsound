@@ -1,0 +1,7 @@
+# Video e file pesanti
+Assets/Video/
+Assets/pdf/
+Assets/*.mp4
+Assets/*.pdf
+node_modules/
+.DS_Store
