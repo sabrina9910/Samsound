@@ -8,6 +8,32 @@
         content="Music Production — Compositore per media, sync music, sound design per TV, cinema, videogiochi." />
     <title>Music Production — Samsound</title>
     <link rel="stylesheet" href="style.css" />
+    <!-- FAVICON - VERSIONE FIXATA (aggiungi ?v=1 per cache) -->
+    <link rel="icon" type="image/svg+xml" sizes="any" href="Assets/favicon.svg?v=1">
+    <link rel="icon" type="image/png" sizes="32x32 96x96" href="Assets/favicon-96x96.png?v=1">
+
+    <!-- Apple/iOS -->
+    <link rel="apple-touch-icon" href="Assets/apple-touch-icon.png?v=1">
+
+    <!-- PWA/Android -->
+    <link rel="manifest" href="Assets/site.webmanifest">
+    <link rel="icon" type="image/png" sizes="192x192" href="Assets/web-app-manifest-192x192.png?v=1">
+    <link rel="icon" type="image/png" sizes="512x512" href="Assets/web-app-manifest-512x512.png?v=1">
+
+    <!-- Forza refresh favicon (Chrome/Safari) -->
+    <link rel="shortcut icon" href="Assets/favicon.svg?v=1">
+    <link rel="icon" href="Assets/favicon.svg?v=1" type="image/x-icon">
+
+    <!-- ELIMINA "S" IPHONE - FAVICON SUBITO -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#000000">
+    <link rel="apple-touch-icon" sizes="180x180" href="Assets/apple-touch-icon.png">
+    <link rel="apple-touch-startup-image" href="Assets/apple-touch-icon.png">
+
+    <!-- Forza favicon iPhone -->
+    <link rel="apple-touch-icon-precomposed" href="Assets/apple-touch-icon.png">
+
 </head>
 
 <body>
@@ -22,7 +48,7 @@
                 <a href="production.html" class="nav__link nav__link--production">Production</a>
                 <a href="education.html" class="nav__link nav__link--education">Education</a>
                 <a href="live.html" class="nav__link nav__link--live">Live</a>
-                <a href="index.html#bio" class="nav__link">Bio</a>
+                <a href="bio.html" class="nav__link">Bio</a>
                 <a href="index.html#contacts" class="nav__link nav__link--contact">Contatti</a>
             </nav>
         </div>
@@ -451,7 +477,7 @@
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
 </body>
 
 </html>

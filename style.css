@@ -1163,7 +1163,7 @@ a {
     width: max-content;
     gap: 3rem;
     will-change: transform;
-    animation: collab-marquee var(--marquee-duration, 28s) linear infinite;
+    animation: collab-marquee var(--marquee-duration, 45s) linear infinite;
     transform: translate3d(0, 0, 0);
 }
 
@@ -1344,6 +1344,23 @@ a {
     gap: .6rem;
     margin-top: .75rem;
 }
+
+.live-center {
+    max-width: 800px;
+    margin: 2.5rem auto 3rem;
+    /* più spazio sopra/sotto */
+    padding: 1.5rem 2rem;
+    /* interno per respirare */
+    text-align: center;
+    border-radius: 12px;
+    /* angoli arrotondati soft */
+    background: rgba(47, 123, 255, .03);
+    /* sfondo live leggero */
+    border-left: 4px solid var(--live);
+    /* linea accent live */
+}
+
+
 
 .link-card__btn {
     display: inline-flex;
@@ -1639,5 +1656,62 @@ body .panel.panel--highlight-production .link-section__title {
     .collab-marquee {
         overflow-x: auto;
         mask-image: none;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* 1. ICONE SOCIAL UNA RIGA (no wrap) */
+    .social-icons {
+        flex-wrap: nowrap !important;
+        /* forza una riga sola */
+        gap: 0.5rem;
+        /* riduci gap per entrare */
+        justify-content: center;
+        overflow-x: auto;
+        /* scroll orizzontale se necessario */
+        padding-bottom: 0.25rem;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .social-icon {
+        flex-shrink: 0;
+        /* non ridursi */
+        width: 42px;
+        height: 42px;
+    }
+
+    .social-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* 2. LOGO HEADER PIÙ GRANDE */
+    .header__brand img {
+        height: 55px !important;
+        /* da 24px a 42px */
+    }
+
+    /* 3. "Giuseppe Samaritano" NO WRAP nel live */
+    .bio-split__text strong {
+        white-space: nowrap;
+        /* non va a capo */
+        font-size: 1.1rem;
+        /* leggermente più grande */
+        display: inline-block;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Nav più compatta */
+    .nav {
+        gap: 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    /* Header inner più alto per logo grande */
+    .header {
+        padding: 0.6rem 0;
     }
 }
