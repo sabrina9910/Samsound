@@ -1,0 +1,13 @@
+# robots.txt - Samsound
+User-agent: *
+Allow: /
+Disallow: /Assets/pdf/
+Disallow: /js/
+Disallow: /*.js$
+Disallow: /*.css$
+
+Sitemap: https://samsound.it/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1
+Request-rate: 60/1m

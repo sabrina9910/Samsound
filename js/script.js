@@ -3,6 +3,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const yearSpan = document.getElementById('year');
     if (yearSpan) yearSpan.textContent = String(new Date().getFullYear());
 
+    // BURGER MENU TOGGLE
+    const burgerMenu = document.getElementById('burgerMenu');
+    const mobileNav = document.getElementById('mobileNav');
+    const navClose = document.getElementById('navClose');
+
+    if (burgerMenu && mobileNav) {
+        burgerMenu.addEventListener('click', () => {
+            const isActive = burgerMenu.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            burgerMenu.setAttribute('aria-expanded', isActive);
+        });
+
+        // Chiudi menu quando clicchi su un link
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                burgerMenu.classList.remove('active');
+                mobileNav.classList.remove('active');
+                burgerMenu.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Chiudi menu con il bottone X
+        if (navClose) {
+            navClose.addEventListener('click', () => {
+                burgerMenu.classList.remove('active');
+                mobileNav.classList.remove('active');
+                burgerMenu.setAttribute('aria-expanded', 'false');
+            });
+        }
+
+        // Chiudi menu con ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                burgerMenu.classList.remove('active');
+                mobileNav.classList.remove('active');
+                burgerMenu.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+
     // Smooth scroll con offset header (solo anchor nella stessa pagina)
     const header = document.getElementById('header');
 

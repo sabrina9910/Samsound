@@ -8,31 +8,19 @@
         content="Live — DJ set-show immersivi, performance e direzione artistica. Clubs ed eventi." />
     <title>Live — Samsound</title>
     <link rel="stylesheet" href="style.css" />
-    <!-- FAVICON - VERSIONE FIXATA (aggiungi ?v=1 per cache) -->
-    <link rel="icon" type="image/svg+xml" sizes="any" href="Assets/favicon.svg?v=1">
-    <link rel="icon" type="image/png" sizes="32x32 96x96" href="Assets/favicon-96x96.png?v=1">
 
-    <!-- Apple/iOS -->
-    <link rel="apple-touch-icon" href="Assets/apple-touch-icon.png?v=1">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="Assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="Assets/favicon-96x96.png">
+    <link rel="apple-touch-icon" href="Assets/apple-touch-icon.png">
 
-    <!-- PWA/Android -->
+    <!-- PWA Manifest -->
     <link rel="manifest" href="Assets/site.webmanifest">
-    <link rel="icon" type="image/png" sizes="192x192" href="Assets/web-app-manifest-192x192.png?v=1">
-    <link rel="icon" type="image/png" sizes="512x512" href="Assets/web-app-manifest-512x512.png?v=1">
 
-    <!-- Forza refresh favicon (Chrome/Safari) -->
-    <link rel="shortcut icon" href="Assets/favicon.svg?v=1">
-    <link rel="icon" href="Assets/favicon.svg?v=1" type="image/x-icon">
-
-    <!-- ELIMINA "S" IPHONE - FAVICON SUBITO -->
+    <!-- Meta Tags -->
+    <meta name="theme-color" content="#8b5cf6">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#000000">
-    <link rel="apple-touch-icon" sizes="180x180" href="Assets/apple-touch-icon.png">
-    <link rel="apple-touch-startup-image" href="Assets/apple-touch-icon.png">
-
-    <!-- Forza favicon iPhone -->
-    <link rel="apple-touch-icon-precomposed" href="Assets/apple-touch-icon.png">
 
 </head>
 
@@ -43,7 +31,15 @@
                 <img class="brand-logo" src="Assets/Logo_Orizzontale_Color_White.png" alt="Samsound" />
             </a>
 
-            <nav class="nav" aria-label="Navigazione principale">
+            <!-- Burger Menu Button -->
+            <button class="burger-menu" id="burgerMenu" aria-label="Toggle menu" aria-expanded="false">
+                <span class="burger-menu__line"></span>
+                <span class="burger-menu__line"></span>
+                <span class="burger-menu__line"></span>
+            </button>
+
+            <nav class="nav" id="mobileNav" aria-label="Navigazione principale">
+                <button class="nav-close" id="navClose" aria-label="Chiudi menu">×</button>
                 <a href="index.html#home" class="nav__link">Home</a>
                 <a href="production.html" class="nav__link nav__link--production">Production</a>
                 <a href="education.html" class="nav__link nav__link--education">Education</a>
@@ -104,8 +100,9 @@
                         un evento
                         immersivo dove la musica è il mezzo di una storia da raccontare. Con un'esperienza maturata sin
                         dall'età di 15 anni e forgiata su palchi internazionali, Samaritano si impone come un frontman
-                        eclettico capace di <strong>unire presenza scenica, abilità vocale e direzione
-                            artistica.</strong>
+                        eclettico capace di <strong>unire presenza scenica,</strong>
+                        <strong>abilità vocale e direzione</strong>
+                        <strong>artistica.</strong>
                     </p>
 
                     <h3>Le sue performance non sono semplici DJ set, ma veri e propri "atti scenici" progettati
@@ -113,25 +110,31 @@
 
                     <ul class="service-list service-list--live">
                         <li>
-                            <strong>Visione Scenica Dinamica</strong> Capacità di abitare e trasformare lo spazio
-                            disponibile,
-                            sfruttando diverse postazioni (stage, dancefloor, banconi, angoli, ecc) per mantenere
-                            costante la tensione emotiva e l'attenzione del pubblico
+                            <strong>Visione Scenica Dinamica</strong>
+                            <p>Capacità di abitare e trasformare lo spazio
+                                disponibile,
+                                sfruttando diverse postazioni (stage, dancefloor, banconi, angoli, ecc) per mantenere
+                                costante la tensione emotiva e l'attenzione del pubblico</p>
                         </li>
                         <li>
-                            <strong>Performance Poliedrica</strong> Un mix energico di canto/vocalist, interazione
-                            coreutica e utilizzo improvvisativo della voce sulle tracce.
+                            <strong>Performance Poliedrica</strong>
+                            <p>Un mix energico di canto/vocalist, interazione
+                                coreutica e utilizzo improvvisativo della voce sulle tracce.</p>
                         </li>
                         <li>
-                            <strong>Progettazione Totale</strong> Ogni show segue una scaletta significativa che può
-                            spaziare tra variedecadi musicali, arricchita da rapidi outfit changes che segnano il
-                            passaggio tra le diverse atmosfere della serata.
+                            <strong>Progettazione Totale</strong>
+                            <p>Ogni show segue una scaletta significativa che può
+                                spaziare tra variedecadi musicali, arricchita da rapidi outfit changes che segnano il
+                                passaggio tra le diverse atmosfere della serata.</p>
                         </li>
                         <li>
-                            <strong>Coinvolgimento e Improvvisazione LIVE </strong> Grazie alla grande varietà di
-                            esperienze
-                            artistiche, come in un’improvvisazione teatrale, Samaritano stabilisce un contatto viscerale
-                            con la platea, sciogliendo con delicatezza la barriera tra artista e pubblico.
+                            <strong>Coinvolgimento e Improvvisazione</strong> <strong>LIVE</strong>
+
+                            <p> Grazie alla grande varietà di
+                                esperienze
+                                artistiche, come in un’improvvisazione teatrale, Samaritano stabilisce un contatto
+                                viscerale
+                                con la platea, sciogliendo con delicatezza la barriera tra artista e pubblico.</p>
                         </li>
                     </ul>
                 </div>
@@ -151,16 +154,24 @@
                 <!-- Video -->
                 <div class="media-gallery-grid">
                     <figure class="media-video-item">
-                        <video src="Assets/Video/Best Moments - Summer Show.mp4" controls preload="metadata"
-                            class="media-video-player" aria-label="Best Moments - Summer Show">
-                        </video>
+                        <div class="media-video-wrapper">
+                            <video poster="Assets/Video/poster_summer.jpg"
+                                src="Assets/Video/Best Moments - Summer Show.mp4" controls preload="metadata"
+                                class="media-video-player" aria-label="Best Moments - Summer Show">
+                            </video>
+                            <div class="media-video-poster media-video-poster--summer"></div>
+                        </div>
                         <figcaption class="media-video-caption">Best Moments — Summer Show</figcaption>
                     </figure>
 
                     <figure class="media-video-item">
-                        <video src="Assets/Video/Best Moments - Winter Show.mp4" controls preload="metadata"
-                            class="media-video-player" aria-label="Best Moments - Winter Show">
-                        </video>
+                        <div class="media-video-wrapper">
+                            <video poster="Assets/Video/poster_winter.jpg"
+                                src="Assets/Video/Best Moments - Winter Show.mp4" controls preload="metadata"
+                                class="media-video-player" aria-label="Best Moments - Winter Show">
+                            </video>
+                            <div class="media-video-poster media-video-poster--winter"></div>
+                        </div>
                         <figcaption class="media-video-caption">Best Moments — Winter Show</figcaption>
                     </figure>
                 </div>
