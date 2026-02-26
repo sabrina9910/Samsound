@@ -73,8 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const isMobile = window.innerWidth <= 480;
     const tracks = document.querySelectorAll('.collab-track');
 
-    // Su mobile, duplica anche se no-marquee è presente (per education)
-    const shouldAnimate = !noMarquee || (isMobile && noMarquee);
+    // Duplica solo se NON è no-marquee (education non duplica mai)
+    const shouldAnimate = !noMarquee;
 
     if (shouldAnimate) {
         tracks.forEach((track) => {
