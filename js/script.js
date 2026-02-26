@@ -68,18 +68,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }); // querySelectorAll ritorna una NodeList statica [web:501]
 
-    // Marquee: duplica automaticamente ogni track (se non .no-marquee)
+    // Marquee: duplica automaticamente ogni track (se non .no-marquee o se mobile)
     const noMarquee = document.body.classList.contains('no-marquee');
+    const isMobile = window.innerWidth <= 480;
     const tracks = document.querySelectorAll('.collab-track');
 
-    if (!noMarquee) {
+    // Su mobile, duplica anche se no-marquee è presente (per education)
+    const shouldAnimate = !noMarquee || (isMobile && noMarquee);
+
+    if (shouldAnimate) {
         tracks.forEach((track) => {
             if (!track.dataset.duplicated) {
                 track.innerHTML += track.innerHTML;
                 track.dataset.duplicated = 'true';
             }
 
-            const speedPxPerSec = 75;
+            const speedPxPerSec = 25;
 
             requestAnimationFrame(() => {
                 const halfWidth = track.scrollWidth / 2;
